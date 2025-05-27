@@ -1,56 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shayan Irfan - Web3 Marketing Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a; /* Very dark gray, almost black */
-            color: #f3f4f6; /* Light gray for general text, good contrast on dark */
+            background-color: #121212; /* Even darker background */
+            color: #e0e0e0; /* Slightly darker text for better readability on very dark */
         }
-        .gold-text { color: #D4AF37; } /* Classic gold */
-        .accent-gold { color: #FFBF00; } /* Amber/Brighter Gold */
-        .bg-dark-card { background-color: rgba(31, 41, 55, 0.5); } /* Darker semi-transparent card bg */
-        .border-gold-faint { border-color: rgba(212, 175, 55, 0.2); } /* Faint gold border */
+        .gold-text { color: #D4AF37; }
+        .accent-gold { color: #FFBF00; }
+        .bg-dark-card { background-color: rgba(40, 40, 40, 0.7); } /* Darker card background */
+        .border-gold-faint { border-color: rgba(212, 175, 55, 0.1); } /* Even fainter gold border */
         .btn-gold {
             background-color: #D4AF37;
-            color: #111827; /* Dark text for contrast on gold button */
-            transition: background-color 0.3s ease;
+            color: #212121; /* Darker text on gold button */
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .btn-gold:hover {
-            background-color: #FFBF00; /* Brighter gold on hover */
+            background-color: #FFBF00;
+            transform: scale(1.05);
         }
-        /* Animation for sections */
         .section-hidden {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
         .section-visible {
             opacity: 1;
             transform: translateY(0);
         }
-        /* Custom scrollbar (optional, for aesthetics) */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* Skill item animation */
+        .skill-item {
+            background-color: rgba(50, 50, 50, 0.8);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
         }
-        ::-webkit-scrollbar-track {
-            background: #1f2937; /* Dark gray track */
+        .skill-item:hover {
+            opacity: 1;
+            transform: scale(1.03);
         }
-        ::-webkit-scrollbar-thumb {
-            background: #D4AF37; /* Gold thumb */
-            border-radius: 4px;
+        /* Subtle 3D perspective and rotation for skills */
+        #skills .bg-dark-card {
+            perspective: 600px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #FFBF00; /* Brighter gold thumb on hover */
+        .skill-item-wrapper {
+            transform-style: preserve-3d;
+            transition: transform 0.4s ease-in-out;
+        }
+        .skill-item-wrapper:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #29003A, #12012C, #000000, #03256E, #1D2053, #000000);
+            background-size: 600% 600%;
+            animation: gradientAnimation 30s infinite alternate;
+            z-index: -1;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
     </style>
 </head>
-<body class="bg-gray-950 text-amber-200">
+<body class="bg-gray-900 text-amber-200">
 
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md shadow-lg transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4">
@@ -58,7 +84,7 @@
                 <a href="#home" class="text-2xl font-bold text-amber-400">Shayan Irfan</a>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-amber-300 hover:text-amber-400 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
                 </div>
                 <ul class="hidden md:flex space-x-6">
@@ -93,7 +119,7 @@
                 <a href="new CV SHAYAN.pdf" target="_blank" class="inline-block btn-gold font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
                     📄 Download Resume
                 </a>
-                <a href="https://wa.me/923267788999" target="_blank" class="inline-block btn-gold font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <a href="[https://wa.me/923267788999](https://wa.me/923267788999)" target="_blank" class="inline-block btn-gold font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
                     💬 Message on WhatsApp
                 </a>
             </div>
@@ -117,29 +143,29 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-amber-300 mb-3">Core Marketing</h3>
-                        <ul class="list-disc list-inside space-y-1 text-amber-100">
-                            <li>E-Commerce Growth</li>
-                            <li>Social Media Marketing (SMM)</li>
-                            <li>Pay Per Click (PPC)</li>
-                            <li>Brand Building & Positioning</li>
-                            <li>Digital Marketing</li>
-                            <li>Content Creation</li>
-                            <li>Community Management</li>
+                        <ul class="space-y-2 text-amber-100">
+                            <li class="skill-item skill-item-wrapper">E-Commerce Growth</li>
+                            <li class="skill-item skill-item-wrapper">Social Media Marketing (SMM)</li>
+                            <li class="skill-item skill-item-wrapper">Pay Per Click (PPC)</li>
+                            <li class="skill-item skill-item-wrapper">Brand Building & Positioning</li>
+                            <li class="skill-item skill-item-wrapper">Digital Marketing</li>
+                            <li class="skill-item skill-item-wrapper">Content Creation</li>
+                            <li class="skill-item skill-item-wrapper">Community Management</li>
                         </ul>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-amber-300 mb-3">Technical & Other</h3>
-                        <ul class="list-disc list-inside space-y-1 text-amber-100">
-                            <li>Data Analytics</li>
-                            <li>AI Editing</li>
-                            <li>Data Entry</li>
+                        <ul class="space-y-2 text-amber-100">
+                            <li class="skill-item skill-item-wrapper">Data Analytics</li>
+                            <li class="skill-item skill-item-wrapper">AI Editing</li>
+                            <li class="skill-item skill-item-wrapper">Data Entry</li>
                         </ul>
                         <h3 class="text-xl font-semibold text-amber-300 mt-4 mb-3">Languages</h3>
-                        <ul class="list-disc list-inside space-y-1 text-amber-100">
-                            <li>English (Advanced)</li>
-                            <li>Urdu (Advanced)</li>
-                            <li>Punjabi (Advanced)</li>
-                            <li>German (Basic)</li>
+                        <ul class="space-y-2 text-amber-100">
+                            <li class="skill-item skill-item-wrapper">English (Advanced)</li>
+                            <li class="skill-item skill-item-wrapper">Urdu (Advanced)</li>
+                            <li class="skill-item skill-item-wrapper">Punjabi (Advanced)</li>
+                            <li class="skill-item skill-item-wrapper">German (Basic)</li>
                         </ul>
                     </div>
                 </div>
@@ -154,9 +180,9 @@
                     <p class="text-amber-100 font-medium">MEXC (Internship)</p>
                     <p class="text-sm text-gray-400 mb-2">January 2025 - March 2025</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Achieved $240M+ Trading Volume during the internship.</li>
-                        <li>Built over 370 EFTT.</li>
-                        <li>Developed a 300+ Influencer Network.</li>
+                        <li>Achieved $240M+ Trading Volume during the internship. [cite: 6]</li>
+                        <li>Built over 370 EFTT. [cite: 6]</li>
+                        <li>Developed a 300+ Influencer Network. [cite: 6]</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -164,17 +190,17 @@
                     <p class="text-amber-100 font-medium">Socrates Global</p>
                     <p class="text-sm text-gray-400 mb-2">Oct 2024 - Dec 2024</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Directed strategic marketing initiatives, enhancing brand visibility across international markets.</li>
-                        <li>Optimized campaign performance through data-driven approaches, resulting in measurable ROI.</li>
+                        <li>Directed strategic marketing initiatives, enhancing brand visibility across international markets. [cite: 7]</li>
+                        <li>Optimized campaign performance through data-driven approaches, resulting in measurable ROI. [cite: 7]</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
                     <h3 class="text-2xl font-semibold text-amber-300">Social Media Marketing Specialist</h3>
                     <p class="text-amber-100 font-medium">Pearl Residencia</p>
-                    <p class="text-sm text-gray-400 mb-2">Aug 2024 - Dec 2024</p>
+                    <p class="text-sm text-gray-400 mb-2">Aug 2024-Dec 2024</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Developed and executed effective social media campaigns, increasing brand awareness and engagement.</li>
-                        <li>Strengthened online presence, achieving significant growth in follower base.</li>
+                        <li>Developed and executed effective social media campaigns, increasing brand awareness and engagement. [cite: 8]</li>
+                        <li>Strengthened online presence, achieving significant growth in follower base. [cite: 9]</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -182,8 +208,8 @@
                     <p class="text-amber-100 font-medium">SynthX</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2023 - Dec 2023</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Crafted targeted marketing campaigns, improving website traffic by 30%.</li>
-                        <li>Designed and published engaging content to boost customer retention and lead generation.</li>
+                        <li>Crafted targeted marketing campaigns, improving website traffic by 30%. [cite: 10]</li>
+                        <li>Designed and published engaging content to boost customer retention and lead generation. [cite: 11]</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -191,8 +217,8 @@
                     <p class="text-amber-100 font-medium">Al Sakeena Collection</p>
                     <p class="text-sm text-gray-400 mb-2">January 2022 - July 2023</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Directed digital marketing operations, resulting in a 40% increase in online sales.</li>
-                        <li>Implemented cost-effective advertising strategies to maximize outreach and revenue.</li>
+                        <li>Directed digital marketing operations, resulting in a 40% increase in online sales. [cite: 12]</li>
+                        <li>Implemented cost-effective advertising strategies to maximize outreach and revenue. [cite: 13]</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -200,8 +226,8 @@
                     <p class="text-amber-100 font-medium">Glip.gg</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2021 - January 2022</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Managed an online gaming community, increasing user base by over 100,000.</li>
-                        <li>Executed innovative marketing campaigns tailored for the competitive gaming sector.</li>
+                        <li>Managed an online gaming community, increasing user base by over 100,000. [cite: 14]</li>
+                        <li>Executed innovative marketing campaigns tailored for the competitive gaming sector. [cite: 14]</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -209,8 +235,8 @@
                     <p class="text-amber-100 font-medium">Tastebuds</p>
                     <p class="text-sm text-gray-400 mb-2">Feb 2021 - July 2021</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Improved brand visibility and customer engagement through innovative digital strategies.</li>
-                        <li>Achieved significant growth in online traffic and client acquisition.</li>
+                        <li>Improved brand visibility and customer engagement through innovative digital strategies. [cite: 15]</li>
+                        <li>Achieved significant growth in online traffic and client acquisition. [cite: 16]</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -218,8 +244,8 @@
                     <p class="text-amber-100 font-medium">HFC Pak</p>
                     <p class="text-sm text-gray-400 mb-2">Nov 2020 - Feb 2021</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Grew brand community by 40,000 users through targeted engagement strategies.</li>
-                        <li>Enhanced user interaction through content creation and personalized marketing.</li>
+                        <li>Grew brand community by 40,000 users through targeted engagement strategies. [cite: 17]</li>
+                        <li>Enhanced user interaction through content creation and personalized marketing. [cite: 18]</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -227,8 +253,8 @@
                     <p class="text-amber-100 font-medium">Royal Incorporation</p>
                     <p class="text-sm text-gray-400 mb-2">March 2019 - Oct 2020</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Spearheaded marketing campaigns, increasing brand profitability by 50%.</li>
-                        <li>Strengthened client relationships through impactful digital outreach.</li>
+                        <li>Spearheaded marketing campaigns, increasing brand profitability by 50%. [cite: 19]</li>
+                        <li>Strengthened client relationships through impactful digital outreach. [cite: 19]</li>
                     </ul>
                 </div>
             </div>
@@ -260,12 +286,12 @@
             <h2 class="text-3xl font-bold text-amber-400 mb-8 text-center">Key Achievements</h2>
             <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
                 <ul class="list-disc list-inside space-y-2 text-amber-100 text-lg">
-                    <li>HFC Pak: Grew the app user base to 500,000+ in 4 months.</li>
-                    <li>Glip & BTX Battle Extreme: Achieved 200,000+ app usages in 2 months.</li>
-                    <li>Al Sakeena Collection: Transformed the e-commerce store into a renowned brand.</li>
-                    <li>Tastebuds: Elevated the restaurant to a top 10 ranking in Faisalabad.</li>
-                    <li>Dynamic Capital Estate: Boosted company growth through innovative marketing.</li>
-                    <li>MHT Textiles: Expanded international reach for CNC Wood Router machines.</li>
+                    <li>HFC Pak: Grew the app user base to 500,000+ in 4 months. [cite: 21]</li>
+                    <li>Glip & BTX Battle Extreme: Achieved 200,000+ app usages in 2 months. [cite: 22]</li>
+                    <li>Al Sakeena Collection: Transformed the e-commerce store into a renowned brand. [cite: 23]</li>
+                    <li>Tastebuds: Elevated the restaurant to a top 10 ranking in Faisalabad. [cite: 24]</li>
+                    <li>Dynamic Capital Estate: Boosted company growth through innovative marketing. [cite: 25]</li>
+                    <li>MHT Textiles: Expanded international reach for CNC Wood Router machines. [cite: 26]</li>
                 </ul>
             </div>
         </section>
@@ -275,54 +301,51 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
                     <h3 class="text-xl font-semibold text-amber-300 mb-2">Local Business Growth</h3>
-                    <p class="text-amber-100">Successfully led marketing campaigns for restaurants, including Hungers Doner, enhancing local visibility and revenue.</p>
+                    <p class="text-amber-100">Successfully led marketing campaigns for restaurants, including Hungers Doner, enhancing local visibility and revenue. [cite: 20]</p>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
                     <h3 class="text-xl font-semibold text-amber-300 mb-2">Teaching</h3>
-                    <p class="text-amber-100">Conducted training sessions on digital marketing strategies for aspiring professionals.</p>
+                    <p class="text-amber-100">Conducted training sessions on digital marketing strategies for aspiring professionals. [cite: 20]</p>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="portfolio-section mb-16 section-hidden">
-            <h2 class="text-3xl font-bold text-amber-400 mb-8 text-center">Contact Me</h2>
-            <div class="bg-dark-card p-6 md:p-8 rounded-lg shadow-lg border border-gold-faint max-w-2xl mx-auto">
-                <form id="contactForm" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-amber-300">Full Name</label>
-                        <input type="text" name="name" id="name" required class="mt-1 block w-full p-3 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:ring-amber-400 focus:border-amber-400 text-amber-100 placeholder-gray-400" placeholder="Your Name">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-amber-300">Email Address</label>
-                        <input type="email" name="email" id="email" required class="mt-1 block w-full p-3 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:ring-amber-400 focus:border-amber-400 text-amber-100 placeholder-gray-400" placeholder="you@example.com">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-amber-300">Message</label>
-                        <textarea id="message" name="message" rows="4" required class="mt-1 block w-full p-3 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:ring-amber-400 focus:border-amber-400 text-amber-100 placeholder-gray-400" placeholder="Your message..."></textarea>
-                    </div>
-                    <div>
-                        <button type="submit" id="submitButton" class="w-full btn-gold font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
-                <div id="form-message" class="mt-4 text-center"></div>
-                 <p class="mt-8 text-center text-amber-200">
-                    Or reach me directly: <br>
-                    Email: <a href="mailto:shayanindustry007@gamil.com" class="text-amber-400 hover:underline">shayanindustry007@gamil.com</a> <br>
-                    Phone: <a href="tel:+923267788999" class="text-amber-400 hover:underline">+92 326 7788999</a> <br>
-                    Twitter: <a href="https://twitter.com/shayanirfan_" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline">@shayanirfan_</a>
+        <section id="contact" class="portfolio-section mb-16 section-hidden text-center">
+            <h2 class="text-3xl font-bold text-amber-400 mb-8">Connect With Me</h2>
+            <div class="space-y-4">
+                <a href="[https://www.linkedin.com/in/shayan-irfan-79530b322](https://www.linkedin.com/in/shayan-irfan-79530b322)" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-gold-faint hover:border-amber-300 transition-colors duration-300">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-amber-300">
+                        <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19.48h-3.04v-11.02h3.04v11.02zm-1.52-12.28c-.99 0-1.63-.66-1.63-1.48 0-.83.64-1.48 1.63-1.48 1 0 1.63.65 1.63 1.48 0 .82-.63 1.48-1.63 1.48zm12.28 12.28h-3.04v-5.9c0-1.56-.58-2.62-2.04-2.62-1.12 0-1.74.83-2.02 1.64 0 .14 0 .3-.02.44v6.44h-3.04s.04-10.84 0-11.02h3.04v1.56c.4-.6 1.12-1.47 2.6-1.47 1.92 0 3.38 1.26 3.38 3.9v5.02z"/>
+                    </svg>
+                </a>
+                <a href="[https://x.com/shayan_malik](https://x.com/shayan_malik)_" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-gold-faint hover:border-amber-300 transition-colors duration-300">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-amber-300">
+                        <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.89-2.37-.83.5-1.75.85-2.72 1.05C18.07 4.42 16.9 4 15.68 4c-2.76 0-5 2.24-5 5 0 .4.05.8.1.96C8.07 8.37 5.33 7 3.05 4.76c-.4.69-.63 1.49-.63 2.34 0 1.74.89 3.27 2.22 4.17C5.67 11.8 4.8 12.1 3.78 12.1c-.39 0-.79-.04-1.17-.12 0 1.79 1.26 3.28 2.96 3.63-.3.08-.6.13-.9.13-.22 0-.43-.02-.64-.06.44 1.46 1.72 2.53 3.24 2.53-1.24.98-2.8 1.57-4.52 1.57-.28 0-.55-.02-.83-.05 1.56.99 3.44 1.57 5.42 1.57 6.5 0 10.07-5.38 10.07-10.07 0-.15 0-.3-.02-.46.69-.49 1.29-1.1 1.76-1.83z"/>
+                    </svg>
+                </a>
+                <p class="mt-4 text-amber-200">
+                    Based in Faisalabad, Punjab.
+                </p>
+                <p class="text-amber-200">
+                    Email: <a href="mailto:shayanindustry007@gamil.com" class="text-amber-400 hover:underline">shayanindustry007@gamil.com</a>
+                </p>
+                <p class="text-amber-200">
+                    WhatsApp: <a href="[https://wa.me/923267788999](https://wa.me/923267788999)" target="_blank" class="text-amber-400 hover:underline">+92 326 7788999</a>
                 </p>
             </div>
         </section>
 
     </div>
 
-    <Footer />
+    <footer class="bg-gray-900 text-amber-100 py-6 text-center">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>&copy; 2025 Shayan Irfan. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a.hover:text-amber-400').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
@@ -332,7 +355,6 @@
                         behavior: 'smooth'
                     });
                 }
-                // Close mobile menu if open
                 const mobileMenu = document.getElementById('mobile-menu');
                 if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
@@ -340,7 +362,6 @@
             });
         });
 
-        // Mobile menu toggle
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         if (menuButton && mobileMenu) {
@@ -349,59 +370,11 @@
             });
         }
 
-        // Contact Form Submission with EmailJS
-        const contactForm = document.getElementById('contactForm');
-        const formMessage = document.getElementById('form-message');
-        const submitButton = document.getElementById('submitButton');
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                submitButton.disabled = true;
-                submitButton.textContent = 'Sending...';
-                formMessage.textContent = ''; // Clear previous messages
-
-                // IMPORTANT: Replace with your actual EmailJS User ID, Service ID, and Template ID
-                const serviceID = 'service_your_id'; // Replace with your EmailJS Service ID
-                const templateID = 'template_your_id'; // Replace with your EmailJS Template ID
-                // Note: Public Key (User ID) is now initialized in the script tag below for EmailJS v3+
-
-                // Check if emailjs is loaded
-                if (typeof emailjs === 'undefined') {
-                    formMessage.textContent = 'Error: EmailJS SDK not loaded.';
-                    formMessage.className = 'text-red-500 mt-4';
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'Send Message';
-                    console.error('EmailJS SDK not loaded. Ensure the script tag is present and correct.');
-                    return;
-                }
-                
-                // Ensure EmailJS is initialized (if not done via script tag)
-                // emailjs.init('your_public_key'); // Replace with your EmailJS Public Key (User ID)
-
-                emailjs.sendForm(serviceID, templateID, this)
-                    .then(() => {
-                        formMessage.textContent = 'Message sent successfully!';
-                        formMessage.className = 'text-green-500 mt-4';
-                        contactForm.reset();
-                    }, (err) => {
-                        formMessage.textContent = 'Failed to send message. Error: ' + JSON.stringify(err);
-                        formMessage.className = 'text-red-500 mt-4';
-                        console.error('EmailJS error:', err);
-                    })
-                    .finally(() => {
-                        submitButton.disabled = false;
-                        submitButton.textContent = 'Send Message';
-                    });
-            });
-        }
-
-        // Scroll reveal animation for sections
         const sections = document.querySelectorAll('.portfolio-section');
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of the element is visible
+            threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
@@ -409,28 +382,15 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.remove('section-hidden');
                     entry.target.classList.add('section-visible');
-                    observer.unobserve(entry.target); // Optional: stop observing after it's visible
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         sections.forEach(section => {
-            section.classList.add('section-hidden'); // Initially hide sections
+            section.classList.add('section-hidden');
             observer.observe(section);
         });
 
-        // Navbar background change on scroll
         const navbar = document.getElementById('navbar');
-        window.onscroll = function() {
-            if (window.pageYOffset > 50) {
-                navbar.classList.add('bg-opacity-100', 'shadow-xl');
-                navbar.classList.remove('bg-opacity-80');
-            } else {
-                navbar.classList.remove('bg-opacity-100', 'shadow-xl');
-                navbar.classList.add('bg-opacity-80');
-            }
-        };
-
-    </script>
-</body>
-</html>
+        window.onscroll
