@@ -43,14 +43,24 @@
             width: 100%;
             height: 100%;
             z-index: -1; /* Behind content, in front of gradient */
-            opacity: 0.15; /* Slightly higher opacity for more presence, but still subtle */
+            opacity: 0.1; /* Even more subtle opacity for background */
             pointer-events: none; /* Allow clicks to pass through */
         }
 
         .gold-text { color: #FFD700; } /* Brighter gold for main accents */
         .accent-gold { color: #FFBF00; } /* Amber/Brighter Gold */
-        .bg-dark-card { background-color: rgba(20, 20, 20, 0.85); } /* Darker, more opaque card background */
-        .border-gold-faint { border-color: rgba(255, 215, 0, 0.2); } /* Gold border with more presence */
+        .bg-dark-card {
+            background-color: rgba(20, 20, 20, 0.85); /* Darker, more opaque card background */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* More prominent shadow */
+            border: 1px solid rgba(255, 215, 0, 0.15); /* Faint gold border */
+        }
+        .bg-dark-card:hover {
+            transform: translateY(-8px); /* Lift effect increased */
+            box-shadow: 0 12px 25px rgba(255, 215, 0, 0.4); /* Stronger gold glow and shadow */
+            border-color: rgba(255, 215, 0, 0.6); /* More visible border on hover */
+        }
+
         .btn-gold {
             background-color: #FFD700; /* Gold button */
             color: #1a1a1a; /* Very dark text on gold button */
@@ -62,19 +72,40 @@
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(255, 191, 0, 0.4); /* Enhanced gold shadow on hover */
         }
-        .section-hidden {
+
+        /* Section entrance animation */
+        .portfolio-section {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out; /* Slower transition */
+            transform: translateY(30px); /* Increased initial translateY */
+            transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); /* Slower, smoother ease-out-quint */
         }
-        .section-visible {
+        .portfolio-section.section-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
         /* Glowing text for titles */
         h1, h2 {
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5), 0 0 15px rgba(255, 191, 0, 0.3); /* Golden glow */
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 191, 0, 0.5); /* More prominent golden glow */
+        }
+
+        /* Hero section specific animations */
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0; /* Start hidden */
+        }
+        .animation-delay-200 { animation-delay: 0.2s; }
+        .animation-delay-400 { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Skill item animation and 3D effect */
@@ -83,28 +114,63 @@
             border-radius: 0.75rem; /* More rounded corners */
             padding: 1rem 1.25rem; /* Slightly larger padding */
             margin-bottom: 0.75rem; /* More spacing */
-            opacity: 0.9;
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            opacity: 0; /* Start hidden for staggered animation */
+            transform: translateY(15px); /* Start slightly below for staggered animation */
+            transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease-in-out;
             display: block;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             color: #f0f0f0; /* Ensure text is visible */
         }
-        .skill-item:hover {
+        .skill-item.stagger-visible {
             opacity: 1;
-            transform: scale(1.04) translateY(-3px); /* Lift and scale slightly */
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3); /* More prominent gold glow on hover */
+            transform: translateY(0);
         }
-        /* Subtle 3D perspective for skills container */
-        #skills .bg-dark-card {
-            perspective: 1000px; /* Stronger perspective */
+        .skill-item:hover {
+            transform: scale(1.05) translateY(-5px); /* Lift and scale slightly more */
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4); /* More prominent gold glow on hover */
         }
+        /* Subtle 3D perspective for skill items */
         .skill-item-wrapper {
             transform-style: preserve-3d;
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth ease-out-quad */
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother ease-out-quad */
         }
         .skill-item-wrapper:hover {
-            transform: rotateY(4deg) rotateX(2deg) translateZ(10px); /* More noticeable 3D tilt and slight forward movement */
+            transform: rotateY(6deg) rotateX(3deg) translateZ(15px); /* More noticeable 3D tilt and slight forward movement */
         }
+
+        /* Staggered animation for experience list items */
+        .experience-item {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .experience-item.stagger-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered animation for project list items */
+        .project-item {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .project-item.stagger-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered animation for achievement list items */
+        .achievement-item {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .achievement-item.stagger-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -119,11 +185,29 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #FFBF00;
         }
+
+        /* Thunder effect overlay */
+        #thunder-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0); /* Start transparent */
+            z-index: 9999; /* On top of everything */
+            pointer-events: none; /* Allow clicks to pass through */
+            opacity: 0;
+            transition: opacity 0.05s ease-out; /* Very quick fade */
+        }
+        #thunder-overlay.flash {
+            opacity: 0.3; /* Subtle flash effect */
+        }
     </style>
 </head>
 <body class="bg-black text-amber-200">
 
     <div id="plotly-background"></div>
+    <div id="thunder-overlay"></div>
 
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md shadow-lg transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4">
@@ -173,7 +257,7 @@
         </div>
     </section>
 
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10"> <section id="about" class="portfolio-section mb-16 section-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10"> <section id="about" class="portfolio-section mb-16">
             <h2 class="text-3xl font-bold text-amber-400 mb-6 text-center">About Me</h2>
             <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
                 <p class="text-lg leading-relaxed mb-4">I am a digital marketing expert with over 3 years of experience in social media strategy, content creation, and targeted advertising across platforms such as Facebook, Instagram, Twitter, and WhatsApp. Proven track record of boosting online engagement and brand visibility for diverse industries, including Real Estate, Crypto, and Forex. Skilled in creating visually compelling content, from logos to photos, that resonates with target audiences and strengthens brand identity.</p>
@@ -182,16 +266,16 @@
             </div>
         </section>
 
-        <section id="skills" class="portfolio-section mb-16 section-hidden">
+        <section id="skills" class="portfolio-section mb-16">
             <h2 class="text-3xl font-bold text-amber-400 mb-6 text-center">Skills</h2>
             <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-amber-300 mb-3">Core Marketing</h3>
-                        <ul class="space-y-2 text-amber-100">
+                        <ul class="space-y-2 text-amber-100" data-stagger-group="skills-core">
+                            <li class="skill-item skill-item-wrapper">Business Development Manager</li>
                             <li class="skill-item skill-item-wrapper">E-Commerce Growth</li>
                             <li class="skill-item skill-item-wrapper">Social Media Marketing (SMM)</li>
-                            <li class="skill-item skill-item-wrapper">Pay Per Click (PPC)</li>
                             <li class="skill-item skill-item-wrapper">Brand Building & Positioning</li>
                             <li class="skill-item skill-item-wrapper">Digital Marketing</li>
                             <li class="skill-item skill-item-wrapper">Content Creation</li>
@@ -200,13 +284,13 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-amber-300 mb-3">Technical & Other</h3>
-                        <ul class="space-y-2 text-amber-100">
+                        <ul class="space-y-2 text-amber-100" data-stagger-group="skills-tech">
                             <li class="skill-item skill-item-wrapper">Data Analytics</li>
                             <li class="skill-item skill-item-wrapper">AI Editing</li>
                             <li class="skill-item skill-item-wrapper">Data Entry</li>
                         </ul>
                         <h3 class="text-xl font-semibold text-amber-300 mt-4 mb-3">Languages</h3>
-                        <ul class="space-y-2 text-amber-100">
+                        <ul class="space-y-2 text-amber-100" data-stagger-group="skills-lang">
                             <li class="skill-item skill-item-wrapper">English (Advanced)</li>
                             <li class="skill-item skill-item-wrapper">Urdu (Advanced)</li>
                             <li class="skill-item skill-item-wrapper">Punjabi (Advanced)</li>
@@ -217,10 +301,10 @@
             </div>
         </section>
 
-        <section id="experience" class="portfolio-section mb-16 section-hidden">
+        <section id="experience" class="portfolio-section mb-16">
             <h2 class="text-3xl font-bold text-amber-400 mb-8 text-center">Experience</h2>
-            <div class="space-y-8">
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+            <div class="space-y-8" data-stagger-group="experience">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
                     <h3 class="text-2xl font-semibold text-amber-300">Business Development Internship</h3>
                     <p class="text-amber-100 font-medium">MEXC (Internship)</p>
                     <p class="text-sm text-gray-400 mb-2">January 2025 - March 2025</p>
@@ -230,7 +314,7 @@
                         <li>Developed a 300+ Influencer Network.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
                     <h3 class="text-2xl font-semibold text-amber-300">Marketing Head</h3>
                     <p class="text-amber-100 font-medium">Socrates Global</p>
                     <p class="text-sm text-gray-400 mb-2">Oct 2024 - Dec 2024</p>
@@ -239,7 +323,7 @@
                         <li>Optimized campaign performance through data-driven approaches, resulting in measurable ROI.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
                     <h3 class="text-2xl font-semibold text-amber-300">Social Media Marketing Specialist</h3>
                     <p class="text-amber-100 font-medium">Pearl Residencia</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2024-Dec 2024</p>
@@ -248,7 +332,7 @@
                         <li>Strengthened online presence, achieving significant growth in follower base.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
                     <h3 class="text-2xl font-semibold text-amber-300">Digital Marketing Intern</h3>
                     <p class="text-amber-100 font-medium">SynthX</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2023 - Dec 2023</p>
@@ -257,7 +341,7 @@
                         <li>Designed and published engaging content to boost customer retention and lead generation.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
                     <h3 class="text-2xl font-semibold text-amber-300">Digital Marketing Manager</h3>
                     <p class="text-amber-100 font-medium">Al Sakeena Collection</p>
                     <p class="text-sm text-gray-400 mb-2">January 2022 - July 2023</p>
@@ -266,7 +350,7 @@
                         <li>Implemented cost-effective advertising strategies to maximize outreach and revenue.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
                     <h3 class="text-2xl font-semibold text-amber-300">Community Specialist</h3>
                     <p class="text-amber-100 font-medium">Glip.gg</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2021 - January 2022</p>
@@ -275,7 +359,7 @@
                         <li>Executed innovative marketing campaigns tailored for the competitive gaming sector.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
                     <h3 class="text-2xl font-semibold text-amber-300">Digital Marketing Manager</h3>
                     <p class="text-amber-100 font-medium">Tastebuds</p>
                     <p class="text-sm text-gray-400 mb-2">Feb 2021 - July 2021</p>
@@ -284,7 +368,7 @@
                         <li>Achieved significant growth in online traffic and client acquisition.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
                     <h3 class="text-2xl font-semibold text-amber-300">Community Specialist</h3>
                     <p class="text-amber-100 font-medium">HFC Pak</p>
                     <p class="text-sm text-gray-400 mb-2">Nov 2020 - Feb 2021</p>
@@ -293,7 +377,7 @@
                         <li>Enhanced user interaction through content creation and personalized marketing.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
                     <h3 class="text-2xl font-semibold text-amber-300">Digital Marketing Manager</h3>
                     <p class="text-amber-100 font-medium">Royal Incorporation</p>
                     <p class="text-sm text-gray-400 mb-2">March 2019 - Oct 2020</p>
@@ -305,57 +389,57 @@
             </div>
         </section>
 
-        <section id="projects" class="portfolio-section mb-16 section-hidden">
+        <section id="projects" class="portfolio-section mb-16">
             <h2 class="text-3xl font-bold text-amber-400 mb-8 text-center">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-stagger-group="projects">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
                     <h3 class="text-xl font-semibold text-amber-300 mb-2">Socrates</h3>
                     <p class="text-amber-100">Web3 knowledge protocol</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
                     <h3 class="text-xl font-semibold text-amber-300 mb-2">Glip.gg</h3>
                     <p class="text-amber-100">Gaming & Web3 rewards</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
                     <h3 class="text-xl font-semibold text-amber-300 mb-2">BTX Battle Extreme</h3>
                     <p class="text-amber-100">GameFi campaign</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
                     <h3 class="text-xl font-semibold text-amber-300 mb-2">MEXC</h3>
                     <p class="text-amber-100">CEX collaboration & marketing</p>
                 </div>
             </div>
         </section>
 
-        <section id="achievements" class="portfolio-section mb-16 section-hidden">
+        <section id="achievements" class="portfolio-section mb-16">
             <h2 class="text-3xl font-bold text-amber-400 mb-8 text-center">Key Achievements</h2>
             <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
-                <ul class="list-disc list-inside space-y-2 text-amber-100 text-lg">
-                    <li>HFC Pak: Grew the app user base to 500,000+ in 4 months.</li>
-                    <li>Glip & BTX Battle Extreme: Achieved 200,000+ app usages in 2 months.</li>
-                    <li>Al Sakeena Collection: Transformed the e-commerce store into a renowned brand.</li>
-                    <li>Tastebuds: Elevated the restaurant to a top 10 ranking in Faisalabad.</li>
-                    <li>Dynamic Capital Estate: Boosted company growth through innovative marketing.</li>
-                    <li>MHT Textiles: Expanded international reach for CNC Wood Router machines.</li>
+                <ul class="list-disc list-inside space-y-2 text-amber-100 text-lg" data-stagger-group="achievements">
+                    <li class="achievement-item">HFC Pak: Grew the app user base to 500,000+ in 4 months.</li>
+                    <li class="achievement-item">Glip & BTX Battle Extreme: Achieved 200,000+ app usages in 2 months.</li>
+                    <li class="achievement-item">Al Sakeena Collection: Transformed the e-commerce store into a renowned brand.</li>
+                    <li class="achievement-item">Tastebuds: Elevated the restaurant to a top 10 ranking in Faisalabad.</li>
+                    <li class="achievement-item">Dynamic Capital Estate: Boosted company growth through innovative marketing.</li>
+                    <li class="achievement-item">MHT Textiles: Expanded international reach for CNC Wood Router machines.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="additional-projects" class="portfolio-section mb-16 section-hidden">
+        <section id="additional-projects" class="portfolio-section mb-16">
             <h2 class="text-3xl font-bold text-amber-400 mb-8 text-center">Additional Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-stagger-group="additional-projects">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
                     <h3 class="text-xl font-semibold text-amber-300 mb-2">Local Business Growth</h3>
                     <p class="text-amber-100">Successfully led marketing campaigns for restaurants, including Hungers Doner, enhancing local visibility and revenue.</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
                     <h3 class="text-xl font-semibold text-amber-300 mb-2">Teaching</h3>
                     <p class="text-amber-100">Conducted training sessions on digital marketing strategies for aspiring professionals.</p>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="portfolio-section mb-16 section-hidden text-center">
+        <section id="contact" class="portfolio-section mb-16 text-center">
             <h2 class="text-3xl font-bold text-amber-400 mb-8">Connect With Me</h2>
             <div class="space-y-4 flex flex-wrap justify-center items-center">
                 <a href="https://www.linkedin.com/in/shayan-irfan-79530b322" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-gold-faint hover:border-amber-300 transition-colors duration-300 mx-2 my-2">
@@ -424,19 +508,36 @@
             threshold: 0.1
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.remove('section-hidden');
                     entry.target.classList.add('section-visible');
+                    // Stagger animation for child elements
+                    const staggerGroups = entry.target.querySelectorAll('[data-stagger-group]'); // FIX: Use querySelectorAll
+                    staggerGroups.forEach(staggerGroup => {
+                        let delay = 0;
+                        const items = staggerGroup.children;
+                        Array.from(items).forEach((item, index) => {
+                            const animatableItem = item.classList.contains('skill-item') ||
+                                item.classList.contains('experience-item') ||
+                                item.classList.contains('project-item') ||
+                                item.classList.contains('achievement-item') ? item : null;
+
+                            if (animatableItem) {
+                                setTimeout(() => {
+                                    animatableItem.classList.add('stagger-visible');
+                                }, delay);
+                                delay += 70; // Stagger delay in milliseconds
+                            }
+                        });
+                    });
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         sections.forEach(section => {
-            section.classList.add('section-hidden');
-            observer.observe(section);
+            sectionObserver.observe(section);
         });
 
         const navbar = document.getElementById('navbar');
@@ -456,27 +557,27 @@
         let plotInitialized = false;
 
         function create3DPlot() {
-            const numPoints = 150; // More points for a denser chart
+            const numPoints = 120; // Slightly reduced for performance
             let x = []; // Time/Index
             let y = []; // Price
             let z = []; // Volume/Depth
-            let colors = [];
+            let priceColors = [];
             let currentPrice = 0.5; // Starting price for simulation
 
             for (let i = 0; i < numPoints; i++) {
                 x.push(i);
                 // Simulate price movement
-                currentPrice += (Math.random() - 0.5) * 0.1; // Small random fluctuations
-                currentPrice = Math.max(0, Math.min(1, currentPrice)); // Keep within bounds
+                currentPrice += (Math.random() - 0.5) * 0.05; // Smaller random fluctuations
+                currentPrice = Math.max(0.1, Math.min(0.9, currentPrice)); // Keep within reasonable bounds (0.1 to 0.9)
                 y.push(currentPrice);
-                z.push(Math.random() * 0.5); // Simulate volume/depth
+                z.push(Math.random() * 0.4); // Simulate volume/depth
 
                 // Color based on price change (like candles)
                 if (i > 0) {
-                    if (y[i] > y[i-1]) colors.push('rgba(0, 255, 0, 0.7)'); // Green for up
-                    else colors.push('rgba(255, 0, 0, 0.7)'); // Red for down
+                    if (y[i] > y[i-1]) priceColors.push('rgba(0, 200, 0, 0.7)'); // Green for up
+                    else priceColors.push('rgba(200, 0, 0, 0.7)'); // Red for down
                 } else {
-                    colors.push('rgba(255, 215, 0, 0.7)'); // Gold for first point
+                    priceColors.push('rgba(255, 215, 0, 0.7)'); // Gold for first point
                 }
             }
 
@@ -489,27 +590,27 @@
                     type: 'scatter3d',
                     name: 'Price',
                     line: {
-                        color: 'rgba(255, 215, 0, 0.5)', // Gold line
-                        width: 2
+                        color: 'rgba(255, 215, 0, 0.3)', // Faint gold line
+                        width: 1.5
                     },
                     marker: {
-                        size: 3,
-                        color: colors, // Dynamic colors based on price change
-                        opacity: 0.8,
+                        size: 2,
+                        color: priceColors, // Dynamic colors based on price change
+                        opacity: 0.7,
                         symbol: 'circle'
                     }
                 },
                 {
-                    x: x.map(val => val + Math.random() * 5 - 2.5), // Slightly offset for volume
-                    y: y.map(val => val - (Math.random() * 0.2 + 0.1)), // Below price line
-                    z: z.map(val => Math.random() * 0.3), // Smaller volume
+                    x: x.map(val => val + (Math.random() * 10 - 5)), // Slightly offset for volume on X
+                    y: y.map(val => val - (Math.random() * 0.1 + 0.05)), // Below price line on Y
+                    z: z.map(val => Math.random() * 0.2), // Smaller volume on Z
                     mode: 'markers',
                     type: 'scatter3d',
                     name: 'Volume',
                     marker: {
-                        size: 2,
-                        color: 'rgba(150, 150, 150, 0.5)', // Muted gray for volume
-                        opacity: 0.6,
+                        size: 1.5,
+                        color: 'rgba(100, 100, 100, 0.4)', // Very muted gray for volume
+                        opacity: 0.5,
                         symbol: 'circle'
                     }
                 }
@@ -526,7 +627,7 @@
                     zaxis: { visible: false, range: [0, 1] },
                     camera: {
                         eye: { x: 1.5, y: 1.5, z: 1.5 }, // Initial camera position
-                        center: { x: 0.5, y: 0.5, z: 0.25 }, // Center of the plot
+                        center: { x: numPoints / 2, y: 0.5, z: 0.25 }, // Center of the plot
                         up: { x: 0, y: 0, z: 1 }
                     },
                     aspectmode: 'data'
@@ -551,35 +652,52 @@
             }
 
             const camera = plotlyDiv._fullLayout.scene.camera;
-            const radius = 2.5; // Orbit radius
-            const newEyeX = radius * Math.cos(frame * 0.003); // Slower orbit
-            const newEyeY = radius * Math.sin(frame * 0.003);
-            const newEyeZ = 1.0 + 0.5 * Math.sin(frame * 0.001); // Subtle vertical bob
+            const orbitRadius = 2.0; // Orbit radius
+            const orbitSpeed = 0.002; // Slower orbit speed
+
+            const newEyeX = orbitRadius * Math.cos(frame * orbitSpeed);
+            const newEyeY = orbitRadius * Math.sin(frame * orbitSpeed);
+            const newEyeZ = 0.8 + 0.5 * Math.sin(frame * 0.001); // Subtle vertical bob
 
             Plotly.relayout(plotlyDiv, 'scene.camera.eye', { x: newEyeX, y: newEyeY, z: newEyeZ });
 
             // Simulate slight data fluctuations for dynamism
-            const numPoints = 150;
+            const numPoints = 120;
             let newY = [];
-            let newColors = [];
+            let newPriceColors = [];
             const currentTraceY = plotlyDiv.data[0].y;
             for (let i = 0; i < numPoints; i++) {
-                let val = currentTraceY[i] + (Math.random() - 0.5) * 0.005; // Very small price change
-                val = Math.max(0, Math.min(1, val));
+                let val = currentTraceY[i] + (Math.random() - 0.5) * 0.002; // Very small price change
+                val = Math.max(0.1, Math.min(0.9, val));
                 newY.push(val);
 
                 if (i > 0) {
-                    if (newY[i] > newY[i-1]) newColors.push('rgba(0, 255, 0, 0.7)');
-                    else newColors.push('rgba(255, 0, 0, 0.7)');
+                    if (newY[i] > currentTraceY[i]) newPriceColors.push('rgba(0, 200, 0, 0.7)');
+                    else newPriceColors.push('rgba(200, 0, 0, 0.7)');
                 } else {
-                    newColors.push('rgba(255, 215, 0, 0.7)');
+                    newPriceColors.push('rgba(255, 215, 0, 0.7)');
                 }
             }
-            Plotly.restyle(plotlyDiv, { y: [newY], 'marker.color': [newColors] }, [0]); // Update price and colors
+            Plotly.restyle(plotlyDiv, { y: [newY], 'marker.color': [newPriceColors] }, [0]); // Update price and colors
 
             frame++;
             animationFrameId = requestAnimationFrame(animatePlot);
         }
+
+        // Thunder Effect Logic
+        const thunderOverlay = document.getElementById('thunder-overlay');
+        function triggerThunderFlash() {
+            thunderOverlay.classList.add('flash');
+            setTimeout(() => {
+                thunderOverlay.classList.remove('flash');
+            }, 100); // Flash duration
+        }
+
+        // Trigger thunder flash randomly (e.g., every 10-30 seconds)
+        setInterval(() => {
+            const randomDelay = Math.random() * 20000 + 10000; // 10 to 30 seconds
+            setTimeout(triggerThunderFlash, randomDelay);
+        }, 30000); // Check every 30 seconds to potentially trigger a flash
 
         // Initialize and animate Plotly on window load
         window.onload = function() {
