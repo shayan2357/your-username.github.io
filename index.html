@@ -1,14 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shayan Irfan - Web3 Marketing Portfolio</title>
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <link href="[https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #121212; /* Even darker background */
             color: #e0e0e0; /* Slightly darker text for better readability on very dark */
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
         .gold-text { color: #D4AF37; }
         .accent-gold { color: #FFBF00; }
@@ -40,6 +43,7 @@
             margin-bottom: 0.5rem;
             opacity: 0.8;
             transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+            display: block; /* Ensure it takes full width of its parent */
         }
         .skill-item:hover {
             opacity: 1;
@@ -54,7 +58,7 @@
             transition: transform 0.4s ease-in-out;
         }
         .skill-item-wrapper:hover {
-            transform: rotateY(10deg) rotateX(5deg);
+            transform: rotateY(5deg) rotateX(2deg); /* Less aggressive rotation */
         }
         /* Animated gradient background */
         body::before {
@@ -84,7 +88,7 @@
                 <a href="#home" class="text-2xl font-bold text-amber-400">Shayan Irfan</a>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-amber-300 hover:text-amber-400 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
                 </div>
                 <ul class="hidden md:flex space-x-6">
@@ -94,7 +98,7 @@
                     <li><a href="#experience" class="hover:text-amber-400 transition-colors duration-300">Experience</a></li>
                     <li><a href="#projects" class="hover:text-amber-400 transition-colors duration-300">Projects</a></li>
                     <li><a href="#achievements" class="hover:text-amber-400 transition-colors duration-300">Achievements</a></li>
-                    <li><a href="#contact" class="hover:text-amber-400 transition-colors duration-300">Contact</a></li>
+                    <li><a href="#contact" class="hover:text-amber-400 transition-colors duration-300">Connect</a></li>
                 </ul>
             </div>
         </div>
@@ -106,7 +110,7 @@
                 <li><a href="#experience" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">Experience</a></li>
                 <li><a href="#projects" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">Projects</a></li>
                 <li><a href="#achievements" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">Achievements</a></li>
-                <li><a href="#contact" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">Contact</a></li>
+                <li><a href="#contact" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">Connect</a></li>
             </ul>
         </div>
     </nav>
@@ -119,7 +123,7 @@
                 <a href="new CV SHAYAN.pdf" target="_blank" class="inline-block btn-gold font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
                     📄 Download Resume
                 </a>
-                <a href="[https://wa.me/923267788999](https://wa.me/923267788999)" target="_blank" class="inline-block btn-gold font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <a href="https://wa.me/923267788999" target="_blank" class="inline-block btn-gold font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
                     💬 Message on WhatsApp
                 </a>
             </div>
@@ -180,9 +184,9 @@
                     <p class="text-amber-100 font-medium">MEXC (Internship)</p>
                     <p class="text-sm text-gray-400 mb-2">January 2025 - March 2025</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Achieved $240M+ Trading Volume during the internship. [cite: 6]</li>
-                        <li>Built over 370 EFTT. [cite: 6]</li>
-                        <li>Developed a 300+ Influencer Network. [cite: 6]</li>
+                        <li>Achieved $240M+ Trading Volume during the internship.</li>
+                        <li>Built over 370 EFTT.</li>
+                        <li>Developed a 300+ Influencer Network.</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -190,8 +194,8 @@
                     <p class="text-amber-100 font-medium">Socrates Global</p>
                     <p class="text-sm text-gray-400 mb-2">Oct 2024 - Dec 2024</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Directed strategic marketing initiatives, enhancing brand visibility across international markets. [cite: 7]</li>
-                        <li>Optimized campaign performance through data-driven approaches, resulting in measurable ROI. [cite: 7]</li>
+                        <li>Directed strategic marketing initiatives, enhancing brand visibility across international markets.</li>
+                        <li>Optimized campaign performance through data-driven approaches, resulting in measurable ROI.</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -199,8 +203,8 @@
                     <p class="text-amber-100 font-medium">Pearl Residencia</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2024-Dec 2024</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Developed and executed effective social media campaigns, increasing brand awareness and engagement. [cite: 8]</li>
-                        <li>Strengthened online presence, achieving significant growth in follower base. [cite: 9]</li>
+                        <li>Developed and executed effective social media campaigns, increasing brand awareness and engagement.</li>
+                        <li>Strengthened online presence, achieving significant growth in follower base.</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -208,8 +212,8 @@
                     <p class="text-amber-100 font-medium">SynthX</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2023 - Dec 2023</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Crafted targeted marketing campaigns, improving website traffic by 30%. [cite: 10]</li>
-                        <li>Designed and published engaging content to boost customer retention and lead generation. [cite: 11]</li>
+                        <li>Crafted targeted marketing campaigns, improving website traffic by 30%.</li>
+                        <li>Designed and published engaging content to boost customer retention and lead generation.</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -217,8 +221,8 @@
                     <p class="text-amber-100 font-medium">Al Sakeena Collection</p>
                     <p class="text-sm text-gray-400 mb-2">January 2022 - July 2023</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Directed digital marketing operations, resulting in a 40% increase in online sales. [cite: 12]</li>
-                        <li>Implemented cost-effective advertising strategies to maximize outreach and revenue. [cite: 13]</li>
+                        <li>Directed digital marketing operations, resulting in a 40% increase in online sales.</li>
+                        <li>Implemented cost-effective advertising strategies to maximize outreach and revenue.</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -226,8 +230,8 @@
                     <p class="text-amber-100 font-medium">Glip.gg</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2021 - January 2022</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Managed an online gaming community, increasing user base by over 100,000. [cite: 14]</li>
-                        <li>Executed innovative marketing campaigns tailored for the competitive gaming sector. [cite: 14]</li>
+                        <li>Managed an online gaming community, increasing user base by over 100,000.</li>
+                        <li>Executed innovative marketing campaigns tailored for the competitive gaming sector.</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -235,8 +239,8 @@
                     <p class="text-amber-100 font-medium">Tastebuds</p>
                     <p class="text-sm text-gray-400 mb-2">Feb 2021 - July 2021</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Improved brand visibility and customer engagement through innovative digital strategies. [cite: 15]</li>
-                        <li>Achieved significant growth in online traffic and client acquisition. [cite: 16]</li>
+                        <li>Improved brand visibility and customer engagement through innovative digital strategies.</li>
+                        <li>Achieved significant growth in online traffic and client acquisition.</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -244,8 +248,8 @@
                     <p class="text-amber-100 font-medium">HFC Pak</p>
                     <p class="text-sm text-gray-400 mb-2">Nov 2020 - Feb 2021</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Grew brand community by 40,000 users through targeted engagement strategies. [cite: 17]</li>
-                        <li>Enhanced user interaction through content creation and personalized marketing. [cite: 18]</li>
+                        <li>Grew brand community by 40,000 users through targeted engagement strategies.</li>
+                        <li>Enhanced user interaction through content creation and personalized marketing.</li>
                     </ul>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
@@ -253,8 +257,8 @@
                     <p class="text-amber-100 font-medium">Royal Incorporation</p>
                     <p class="text-sm text-gray-400 mb-2">March 2019 - Oct 2020</p>
                     <ul class="list-disc list-inside space-y-1 text-amber-100">
-                        <li>Spearheaded marketing campaigns, increasing brand profitability by 50%. [cite: 19]</li>
-                        <li>Strengthened client relationships through impactful digital outreach. [cite: 19]</li>
+                        <li>Spearheaded marketing campaigns, increasing brand profitability by 50%.</li>
+                        <li>Strengthened client relationships through impactful digital outreach.</li>
                     </ul>
                 </div>
             </div>
@@ -286,12 +290,12 @@
             <h2 class="text-3xl font-bold text-amber-400 mb-8 text-center">Key Achievements</h2>
             <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
                 <ul class="list-disc list-inside space-y-2 text-amber-100 text-lg">
-                    <li>HFC Pak: Grew the app user base to 500,000+ in 4 months. [cite: 21]</li>
-                    <li>Glip & BTX Battle Extreme: Achieved 200,000+ app usages in 2 months. [cite: 22]</li>
-                    <li>Al Sakeena Collection: Transformed the e-commerce store into a renowned brand. [cite: 23]</li>
-                    <li>Tastebuds: Elevated the restaurant to a top 10 ranking in Faisalabad. [cite: 24]</li>
-                    <li>Dynamic Capital Estate: Boosted company growth through innovative marketing. [cite: 25]</li>
-                    <li>MHT Textiles: Expanded international reach for CNC Wood Router machines. [cite: 26]</li>
+                    <li>HFC Pak: Grew the app user base to 500,000+ in 4 months.</li>
+                    <li>Glip & BTX Battle Extreme: Achieved 200,000+ app usages in 2 months.</li>
+                    <li>Al Sakeena Collection: Transformed the e-commerce store into a renowned brand.</li>
+                    <li>Tastebuds: Elevated the restaurant to a top 10 ranking in Faisalabad.</li>
+                    <li>Dynamic Capital Estate: Boosted company growth through innovative marketing.</li>
+                    <li>MHT Textiles: Expanded international reach for CNC Wood Router machines.</li>
                 </ul>
             </div>
         </section>
@@ -301,11 +305,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
                     <h3 class="text-xl font-semibold text-amber-300 mb-2">Local Business Growth</h3>
-                    <p class="text-amber-100">Successfully led marketing campaigns for restaurants, including Hungers Doner, enhancing local visibility and revenue. [cite: 20]</p>
+                    <p class="text-amber-100">Successfully led marketing campaigns for restaurants, including Hungers Doner, enhancing local visibility and revenue.</p>
                 </div>
                 <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
                     <h3 class="text-xl font-semibold text-amber-300 mb-2">Teaching</h3>
-                    <p class="text-amber-100">Conducted training sessions on digital marketing strategies for aspiring professionals. [cite: 20]</p>
+                    <p class="text-amber-100">Conducted training sessions on digital marketing strategies for aspiring professionals.</p>
                 </div>
             </div>
         </section>
@@ -313,12 +317,12 @@
         <section id="contact" class="portfolio-section mb-16 section-hidden text-center">
             <h2 class="text-3xl font-bold text-amber-400 mb-8">Connect With Me</h2>
             <div class="space-y-4">
-                <a href="[https://www.linkedin.com/in/shayan-irfan-79530b322](https://www.linkedin.com/in/shayan-irfan-79530b322)" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-gold-faint hover:border-amber-300 transition-colors duration-300">
+                <a href="https://www.linkedin.com/in/shayan-irfan-79530b322" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-gold-faint hover:border-amber-300 transition-colors duration-300 mx-2">
                     <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-amber-300">
                         <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19.48h-3.04v-11.02h3.04v11.02zm-1.52-12.28c-.99 0-1.63-.66-1.63-1.48 0-.83.64-1.48 1.63-1.48 1 0 1.63.65 1.63 1.48 0 .82-.63 1.48-1.63 1.48zm12.28 12.28h-3.04v-5.9c0-1.56-.58-2.62-2.04-2.62-1.12 0-1.74.83-2.02 1.64 0 .14 0 .3-.02.44v6.44h-3.04s.04-10.84 0-11.02h3.04v1.56c.4-.6 1.12-1.47 2.6-1.47 1.92 0 3.38 1.26 3.38 3.9v5.02z"/>
                     </svg>
                 </a>
-                <a href="[https://x.com/shayan_malik](https://x.com/shayan_malik)_" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-gold-faint hover:border-amber-300 transition-colors duration-300">
+                <a href="https://x.com/shayan_malik_" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-gold-faint hover:border-amber-300 transition-colors duration-300 mx-2">
                     <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-amber-300">
                         <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.89-2.37-.83.5-1.75.85-2.72 1.05C18.07 4.42 16.9 4 15.68 4c-2.76 0-5 2.24-5 5 0 .4.05.8.1.96C8.07 8.37 5.33 7 3.05 4.76c-.4.69-.63 1.49-.63 2.34 0 1.74.89 3.27 2.22 4.17C5.67 11.8 4.8 12.1 3.78 12.1c-.39 0-.79-.04-1.17-.12 0 1.79 1.26 3.28 2.96 3.63-.3.08-.6.13-.9.13-.22 0-.43-.02-.64-.06.44 1.46 1.72 2.53 3.24 2.53-1.24.98-2.8 1.57-4.52 1.57-.28 0-.55-.02-.83-.05 1.56.99 3.44 1.57 5.42 1.57 6.5 0 10.07-5.38 10.07-10.07 0-.15 0-.3-.02-.46.69-.49 1.29-1.1 1.76-1.83z"/>
                     </svg>
@@ -330,7 +334,7 @@
                     Email: <a href="mailto:shayanindustry007@gamil.com" class="text-amber-400 hover:underline">shayanindustry007@gamil.com</a>
                 </p>
                 <p class="text-amber-200">
-                    WhatsApp: <a href="[https://wa.me/923267788999](https://wa.me/923267788999)" target="_blank" class="text-amber-400 hover:underline">+92 326 7788999</a>
+                    WhatsApp: <a href="https://wa.me/923267788999" target="_blank" class="text-amber-400 hover:underline">+92 326 7788999</a>
                 </p>
             </div>
         </section>
@@ -345,7 +349,7 @@
 
     <script>
         // Smooth scrolling for navigation links
-        document.querySelectorAll('a.hover:text-amber-400').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
@@ -393,4 +397,16 @@
         });
 
         const navbar = document.getElementById('navbar');
-        window.onscroll
+        window.onscroll = function() {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('bg-opacity-100', 'shadow-xl');
+                navbar.classList.remove('bg-opacity-90');
+            } else {
+                navbar.classList.remove('bg-opacity-100', 'shadow-xl');
+                navbar.classList.add('bg-opacity-90');
+            }
+        };
+
+    </script>
+</body>
+</html>
