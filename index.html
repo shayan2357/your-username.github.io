@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shayan Irfan - Web3 Marketing Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000; /* Pure black fallback */
-            color: #e0e0e0; /* Light gray for general text */
+            color: #f0f0f0; /* Slightly brighter light gray for general text */
             overflow-x: hidden; /* Prevent horizontal scroll */
             position: relative; /* Needed for pseudo-element background */
         }
@@ -47,30 +47,31 @@
             pointer-events: none; /* Allow clicks to pass through */
         }
 
-        .gold-text { color: #FFD700; } /* Brighter gold for main accents */
-        .accent-gold { color: #FFBF00; } /* Amber/Brighter Gold */
+        /* Blue Theme Colors */
+        .blue-text { color: #00BFFF; } /* Bright blue for main accents */
+        .accent-blue { color: #00BFFF; } /* Bright blue */
         .bg-dark-card {
             background-color: rgba(15, 15, 15, 0.95); /* Even darker, more opaque card background */
             transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out;
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.8); /* More prominent shadow */
-            border: 1px solid rgba(255, 215, 0, 0.4); /* Faint gold border with more presence */
+            border: 1px solid rgba(0, 150, 255, 0.4); /* Faint blue border with more presence */
         }
         .bg-dark-card:hover {
             transform: translateY(-15px); /* Lift effect increased */
-            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.7); /* Stronger gold glow and shadow */
-            border-color: rgba(255, 215, 0, 1); /* More visible border on hover */
+            box-shadow: 0 25px 50px rgba(0, 150, 255, 0.7); /* Stronger blue glow and shadow */
+            border-color: rgba(0, 150, 255, 1); /* More visible border on hover */
         }
 
-        .btn-gold {
-            background-color: #FFD700; /* Gold button */
-            color: #1a1a1a; /* Very dark text on gold button */
+        .btn-blue {
+            background-color: #00BFFF; /* Blue button */
+            color: #1a1a1a; /* Very dark text on blue button */
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 8px 16px rgba(255, 215, 0, 0.4); /* Subtle gold shadow */
+            box-shadow: 0 8px 16px rgba(0, 150, 255, 0.4); /* Subtle blue shadow */
         }
-        .btn-gold:hover {
-            background-color: #FFBF00;
+        .btn-blue:hover {
+            background-color: #00A3E0; /* Slightly darker blue on hover */
             transform: scale(1.07); /* Slightly more scale */
-            box-shadow: 0 10px 25px rgba(255, 191, 0, 0.6); /* Enhanced gold shadow on hover */
+            box-shadow: 0 10px 25px rgba(0, 150, 255, 0.6); /* Enhanced blue shadow on hover */
         }
 
         /* Section entrance animation */
@@ -86,7 +87,17 @@
 
         /* Glowing text for titles */
         h1, h2 {
-            text-shadow: 0 0 18px rgba(255, 215, 0, 1), 0 0 35px rgba(255, 191, 0, 0.8); /* Even more prominent golden glow */
+            text-shadow: 0 0 18px rgba(0, 180, 255, 1), 0 0 35px rgba(0, 150, 255, 0.8); /* Prominent blue glow */
+        }
+
+        /* Stylish Name Specifics */
+        .stylish-name {
+            font-weight: 800; /* Extra bold */
+            letter-spacing: 0.05em; /* Subtle letter spacing */
+            text-shadow:
+                0 0 20px rgba(0, 180, 255, 1), /* Strong central glow */
+                0 0 40px rgba(0, 150, 255, 0.8), /* Wider, softer glow */
+                0 0 60px rgba(0, 100, 200, 0.6); /* Even wider, fainter glow */
         }
 
         /* Hero section specific animations */
@@ -129,7 +140,7 @@
         }
         .skill-item:hover {
             transform: scale(1.08) translateY(-12px) rotateY(12deg) rotateX(6deg) translateZ(30px); /* Combined and more noticeable 3D tilt and lift */
-            box-shadow: 0 18px 40px rgba(255, 215, 0, 0.7); /* More prominent gold glow on hover */
+            box-shadow: 0 18px 40px rgba(0, 150, 255, 0.7); /* More prominent blue glow on hover */
         }
 
         /* Skill Description Styling */
@@ -138,8 +149,8 @@
             border-radius: 0.7rem;
             padding: 0; /* Initial padding 0 */
             margin-top: 0.8rem;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            box-shadow: inset 0 0 12px rgba(255, 215, 0, 0.15); /* Inner glow */
+            border: 1px solid rgba(0, 150, 255, 0.3);
+            box-shadow: inset 0 0 12px rgba(0, 150, 255, 0.15); /* Inner glow */
             color: #e8e8e8; /* Slightly muted text for description */
             max-height: 0;
             overflow: hidden;
@@ -153,13 +164,37 @@
         }
         .skill-description-title {
             font-weight: 700; /* Bolder title */
-            color: #FFD700; /* Gold for description title */
+            color: #00BFFF; /* Blue for description title */
             margin-bottom: 0.6rem;
-            text-shadow: 0 0 6px rgba(255, 215, 0, 0.4); /* Subtle glow */
+            text-shadow: 0 0 6px rgba(0, 150, 255, 0.4); /* Subtle glow */
         }
         .skill-description-text {
             font-size: 1rem; /* Slightly larger text */
             line-height: 1.6;
+        }
+
+        /* Quote Section Styling */
+        .quote-section {
+            background-color: rgba(25, 25, 25, 0.9); /* Darker background for quote */
+            border-radius: 0.9rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 2px solid rgba(0, 150, 255, 0.6); /* Glowing blue border */
+            box-shadow: 0 0 25px rgba(0, 150, 255, 0.4); /* Stronger blue glow */
+            text-align: center;
+        }
+        .quote-text {
+            font-size: 1.25rem; /* Larger font size */
+            font-style: italic;
+            color: #00BFFF; /* Blue text for quotes */
+            line-height: 1.8;
+            text-shadow: 0 0 10px rgba(0, 180, 255, 0.5); /* Subtle glow on text */
+        }
+        .quote-author {
+            font-size: 1rem;
+            color: #e0e0e0;
+            margin-top: 1rem;
+            font-weight: 500;
         }
 
 
@@ -204,12 +239,12 @@
             background: #080808; /* Even darker track */
         }
         ::-webkit-scrollbar-thumb {
-            background: #FFD700; /* Gold thumb */
+            background: #00BFFF; /* Blue thumb */
             border-radius: 6px; /* More rounded */
             border: 2px solid #151515; /* Dark border for definition */
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #FFBF00;
+            background: #00A3E0;
         }
 
         /* Thunder effect overlay */
@@ -230,7 +265,7 @@
         }
     </style>
 </head>
-<body class="bg-black text-amber-200">
+<body class="bg-black text-f0f0f0">
 
     <div id="plotly-background"></div>
     <div id="thunder-overlay"></div>
@@ -238,45 +273,45 @@
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md shadow-lg transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
-                <a href="#home" class="text-2xl font-bold text-amber-400">Shayan Irfan</a>
+                <a href="#home" class="text-2xl font-bold blue-text">Shayan Irfan</a>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-amber-300 hover:text-amber-400 focus:outline-none">
+                    <button id="mobile-menu-button" class="blue-text hover:text-blue-400 focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
                 </div>
                 <ul class="hidden md:flex space-x-6">
-                    <li><a href="#home" class="hover:text-amber-400 transition-colors duration-300">Home</a></li>
-                    <li><a href="#about" class="hover:text-amber-400 transition-colors duration-300">About</a></li>
-                    <li><a href="#skills" class="hover:text-amber-400 transition-colors duration-300">Skills</a></li>
-                    <li><a href="#experience" class="hover:text-amber-400 transition-colors duration-300">Experience</a></li>
-                    <li><a href="#projects" class="hover:text-amber-400 transition-colors duration-300">Projects</a></li>
-                    <li><a href="#achievements" class="hover:text-amber-400 transition-colors duration-300">Achievements</a></li>
-                    <li><a href="#contact" class="hover:text-amber-400 transition-colors duration-300">Connect</a></li>
+                    <li><a href="#home" class="hover:text-blue-400 transition-colors duration-300">Home</a></li>
+                    <li><a href="#about" class="hover:text-blue-400 transition-colors duration-300">About</a></li>
+                    <li><a href="#skills" class="hover:text-blue-400 transition-colors duration-300">Skills</a></li>
+                    <li><a href="#experience" class="hover:text-blue-400 transition-colors duration-300">Experience</a></li>
+                    <li><a href="#projects" class="hover:text-blue-400 transition-colors duration-300">Projects</a></li>
+                    <li><a href="#achievements" class="hover:text-blue-400 transition-colors duration-300">Achievements</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400 transition-colors duration-300">Connect</a></li>
                 </ul>
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-gray-900 bg-opacity-95">
             <ul class="flex flex-col items-center py-4 space-y-2">
-                <li><a href="#home" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">Home</a></li>
-                <li><a href="#about" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">About</a></li>
-                <li><a href="#skills" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">Skills</a></li>
-                <li><a href="#experience" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">Experience</a></li>
-                <li><a href="#projects" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">Projects</a></li>
-                <li><a href="#achievements" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">Achievements</a></li>
-                <li><a href="#contact" class="block py-2 px-4 text-amber-200 hover:text-amber-400 transition-colors duration-300">Connect</a></li>
+                <li><a href="#home" class="block py-2 px-4 text-gray-200 hover:text-blue-400 transition-colors duration-300">Home</a></li>
+                <li><a href="#about" class="block py-2 px-4 text-gray-200 hover:text-blue-400 transition-colors duration-300">About</a></li>
+                <li><a href="#skills" class="block py-2 px-4 text-gray-200 hover:text-blue-400 transition-colors duration-300">Skills</a></li>
+                <li><a href="#experience" class="block py-2 px-4 text-gray-200 hover:text-blue-400 transition-colors duration-300">Experience</a></li>
+                <li><a href="#projects" class="block py-2 px-4 text-gray-200 hover:text-blue-400 transition-colors duration-300">Projects</a></li>
+                <li><a href="#achievements" class="block py-2 px-4 text-gray-200 hover:text-blue-400 transition-colors duration-300">Achievements</a></li>
+                <li><a href="#contact" class="block py-2 px-4 text-gray-200 hover:text-blue-400 transition-colors duration-300">Connect</a></li>
             </ul>
         </div>
     </nav>
 
     <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 pb-12 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
         <div class="max-w-3xl mx-auto">
-            <h1 class="text-5xl md:text-7xl font-bold text-amber-400 mb-6 animate-fade-in-up">Shayan Irfan</h1>
-            <p class="text-xl md:text-2xl text-amber-200 mb-10 animate-fade-in-up animation-delay-200">Social Media Marketing Specialist / Web3 Marketing Strategist</p>
+            <h1 class="text-5xl md:text-7xl font-bold blue-text mb-6 animate-fade-in-up stylish-name">Shayan Irfan</h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-10 animate-fade-in-up animation-delay-200">Social Media Marketing Specialist / Web3 Marketing Strategist</p>
             <div class="space-x-0 space-y-4 sm:space-x-4 sm:space-y-0 animate-fade-in-up animation-delay-400">
-                <a href="new CV SHAYAN.pdf" target="_blank" class="inline-block btn-gold font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <a href="new CV SHAYAN.pdf" target="_blank" class="inline-block btn-blue font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
                     📄 Download Resume
                 </a>
-                <a href="https://wa.me/923267788999" target="_blank" class="inline-block btn-gold font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <a href="https://wa.me/923267788999" target="_blank" class="inline-block btn-blue font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
                     💬 Message on WhatsApp
                 </a>
             </div>
@@ -285,21 +320,26 @@
 
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <section id="about" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold text-amber-400 mb-6 text-center">About Me</h2>
-            <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+            <h2 class="text-3xl font-bold blue-text mb-6 text-center">About Me</h2>
+            <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint">
                 <p class="text-lg leading-relaxed mb-4">I am a digital marketing expert with over 3 years of experience in social media strategy, content creation, and targeted advertising across platforms such as Facebook, Instagram, Twitter, and WhatsApp. Proven track record of boosting online engagement and brand visibility for diverse industries, including Real Estate, Crypto, and Forex. Skilled in creating visually compelling content, from logos to photos, that resonates with target audiences and strengthens brand identity.</p>
-                <p class="text-lg leading-relaxed mb-4"><strong class="text-amber-300">Bonus Expertise:</strong> Proficient in data entry, AI editing, and offering a full-service marketing approach tailored to meet the unique needs of businesses.</p>
-                <p class="text-lg leading-relaxed"><strong class="text-amber-300">Web3 Focus:</strong> Web3 marketing specialist with 3+ years of experience helping projects grow from zero to scale. I’ve built a 500K+ community and collaborated with top players like MEXC and Socrates.</p>
+                <p class="text-lg leading-relaxed mb-4"><strong class="blue-text">Bonus Expertise:</strong> Proficient in data entry, AI editing, and offering a full-service marketing approach tailored to meet the unique needs of businesses.</p>
+                <p class="text-lg leading-relaxed"><strong class="blue-text">Web3 Focus:</strong> Web3 marketing specialist with 3+ years of experience helping projects grow from zero to scale. I’ve built a 500K+ community and collaborated with top players like MEXC and Socrates.</p>
+
+                <div class="quote-section">
+                    <p class="quote-text">"In the realm of business development, we don't just compete; we conquer. Every handshake, every deal, a step towards absolute market dominance."</p>
+                    <p class="quote-author">— Shayan Irfan</p>
+                </div>
             </div>
         </section>
 
         <section id="skills" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold text-amber-400 mb-6 text-center">Skills</h2>
-            <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
+            <h2 class="text-3xl font-bold blue-text mb-6 text-center">Skills</h2>
+            <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-amber-300 mb-3">Core Marketing</h3>
-                        <ul class="space-y-2 text-amber-100" data-stagger-group="skills-core">
+                        <h3 class="text-xl font-semibold blue-text mb-3">Core Marketing</h3>
+                        <ul class="space-y-2 text-gray-100" data-stagger-group="skills-core">
                             <li class="skill-item" data-skill-id="business-development-manager">
                                 Business Development Manager
                                 <div class="skill-description-container">
@@ -352,8 +392,8 @@
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-amber-300 mb-3">Technical & Other</h3>
-                        <ul class="space-y-2 text-amber-100" data-stagger-group="skills-tech">
+                        <h3 class="text-xl font-semibold blue-text mb-3">Technical & Other</h3>
+                        <ul class="space-y-2 text-gray-100" data-stagger-group="skills-tech">
                             <li class="skill-item" data-skill-id="data-analytics">
                                 Data Analytics
                                 <div class="skill-description-container">
@@ -376,8 +416,8 @@
                                 </div>
                             </li>
                         </ul>
-                        <h3 class="text-xl font-semibold text-amber-300 mt-4 mb-3">Languages</h3>
-                        <ul class="space-y-2 text-amber-100" data-stagger-group="skills-lang">
+                        <h3 class="text-xl font-semibold blue-text mt-4 mb-3">Languages</h3>
+                        <ul class="space-y-2 text-gray-100" data-stagger-group="skills-lang">
                             <li class="skill-item">English (Advanced)</li>
                             <li class="skill-item">Urdu (Advanced)</li>
                             <li class="skill-item">Punjabi (Advanced)</li>
@@ -389,86 +429,86 @@
         </section>
 
         <section id="experience" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold text-amber-400 mb-8 text-center">Experience</h2>
+            <h2 class="text-3xl font-bold blue-text mb-8 text-center">Experience</h2>
             <div class="space-y-8" data-stagger-group="experience">
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
-                    <h3 class="text-2xl font-semibold text-amber-300">Business Development Internship</h3>
-                    <p class="text-amber-100 font-medium">MEXC (Internship)</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint experience-item">
+                    <h3 class="text-2xl font-semibold blue-text">Business Development Internship</h3>
+                    <p class="text-gray-100 font-medium">MEXC (Internship)</p>
                     <p class="text-sm text-gray-400 mb-2">January 2025 - March 2025</p>
-                    <ul class="list-disc list-inside space-y-1 text-amber-100">
+                    <ul class="list-disc list-inside space-y-1 text-gray-100">
                         <li>Achieved $240M+ Trading Volume during the internship.</li>
                         <li>Built over 370 EFTT.</li>
                         <li>Developed a 300+ Influencer Network.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
-                    <h3 class="text-2xl font-semibold text-amber-300">Marketing Head</h3>
-                    <p class="text-amber-100 font-medium">Socrates Global</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint experience-item">
+                    <h3 class="text-2xl font-semibold blue-text">Marketing Head</h3>
+                    <p class="text-gray-100 font-medium">Socrates Global</p>
                     <p class="text-sm text-gray-400 mb-2">Oct 2024 - Dec 2024</p>
-                    <ul class="list-disc list-inside space-y-1 text-amber-100">
+                    <ul class="list-disc list-inside space-y-1 text-gray-100">
                         <li>Directed strategic marketing initiatives, enhancing brand visibility across international markets.</li>
                         <li>Optimized campaign performance through data-driven approaches, resulting in measurable ROI.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
-                    <h3 class="text-2xl font-semibold text-amber-300">Social Media Marketing Specialist</h3>
-                    <p class="text-amber-100 font-medium">Pearl Residencia</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint experience-item">
+                    <h3 class="text-2xl font-semibold blue-text">Social Media Marketing Specialist</h3>
+                    <p class="text-gray-100 font-medium">Pearl Residencia</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2024-Dec 2024</p>
-                    <ul class="list-disc list-inside space-y-1 text-amber-100">
+                    <ul class="list-disc list-inside space-y-1 text-gray-100">
                         <li>Developed and executed effective social media campaigns, increasing brand awareness and engagement.</li>
                         <li>Strengthened online presence, achieving significant growth in follower base.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
-                    <h3 class="text-2xl font-semibold text-amber-300">Digital Marketing Intern</h3>
-                    <p class="text-amber-100 font-medium">SynthX</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint experience-item">
+                    <h3 class="text-2xl font-semibold blue-text">Digital Marketing Intern</h3>
+                    <p class="text-gray-100 font-medium">SynthX</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2023 - Dec 2023</p>
-                    <ul class="list-disc list-inside space-y-1 text-amber-100">
+                    <ul class="list-disc list-inside space-y-1 text-gray-100">
                         <li>Crafted targeted marketing campaigns, improving website traffic by 30%.</li>
                         <li>Designed and published engaging content to boost customer retention and lead generation.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
-                    <h3 class="text-2xl font-semibold text-amber-300">Digital Marketing Manager</h3>
-                    <p class="text-amber-100 font-medium">Al Sakeena Collection</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint experience-item">
+                    <h3 class="text-2xl font-semibold blue-text">Digital Marketing Manager</h3>
+                    <p class="text-gray-100 font-medium">Al Sakeena Collection</p>
                     <p class="text-sm text-gray-400 mb-2">January 2022 - July 2023</p>
-                    <ul class="list-disc list-inside space-y-1 text-amber-100">
+                    <ul class="list-disc list-inside space-y-1 text-gray-100">
                         <li>Directed digital marketing operations, resulting in a 40% increase in online sales.</li>
                         <li>Implemented cost-effective advertising strategies to maximize outreach and revenue.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
-                    <h3 class="text-2xl font-semibold text-amber-300">Community Specialist</h3>
-                    <p class="text-amber-100 font-medium">Glip.gg</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint experience-item">
+                    <h3 class="text-2xl font-semibold blue-text">Community Specialist</h3>
+                    <p class="text-gray-100 font-medium">Glip.gg</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2021 - January 2022</p>
-                    <ul class="list-disc list-inside space-y-1 text-amber-100">
+                    <ul class="list-disc list-inside space-y-1 text-gray-100">
                         <li>Managed an online gaming community, increasing user base by over 100,000.</li>
                         <li>Executed innovative marketing campaigns tailored for the competitive gaming sector.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
-                    <h3 class="text-2xl font-semibold text-amber-300">Digital Marketing Manager</h3>
-                    <p class="text-amber-100 font-medium">Tastebuds</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint experience-item">
+                    <h3 class="text-2xl font-semibold blue-text">Digital Marketing Manager</h3>
+                    <p class="text-gray-100 font-medium">Tastebuds</p>
                     <p class="text-sm text-gray-400 mb-2">Feb 2021 - July 2021</p>
-                    <ul class="list-disc list-inside space-y-1 text-amber-100">
+                    <ul class="list-disc list-inside space-y-1 text-gray-100">
                         <li>Improved brand visibility and customer engagement through innovative digital strategies.</li>
                         <li>Achieved significant growth in online traffic and client acquisition.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
-                    <h3 class="text-2xl font-semibold text-amber-300">Community Specialist</h3>
-                    <p class="text-amber-100 font-medium">HFC Pak</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint experience-item">
+                    <h3 class="text-2xl font-semibold blue-text">Community Specialist</h3>
+                    <p class="text-gray-100 font-medium">HFC Pak</p>
                     <p class="text-sm text-gray-400 mb-2">Nov 2020 - Feb 2021</p>
-                    <ul class="list-disc list-inside space-y-1 text-amber-100">
+                    <ul class="list-disc list-inside space-y-1 text-gray-100">
                         <li>Grew brand community by 40,000 users through targeted engagement strategies.</li>
                         <li>Enhanced user interaction through content creation and personalized marketing.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint experience-item">
-                    <h3 class="text-2xl font-semibold text-amber-300">Digital Marketing Manager</h3>
-                    <p class="text-amber-100 font-medium">Royal Incorporation</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint experience-item">
+                    <h3 class="text-2xl font-semibold blue-text">Digital Marketing Manager</h3>
+                    <p class="text-gray-100 font-medium">Royal Incorporation</p>
                     <p class="text-sm text-gray-400 mb-2">March 2019 - Oct 2020</p>
-                    <ul class="list-disc list-inside space-y-1 text-amber-100">
+                    <ul class="list-disc list-inside space-y-1 text-gray-100">
                         <li>Spearheaded marketing campaigns, increasing brand profitability by 50%.</li>
                         <li>Strengthened client relationships through impactful digital outreach.</li>
                     </ul>
@@ -477,31 +517,31 @@
         </section>
 
         <section id="projects" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold text-amber-400 mb-8 text-center">Projects</h2>
+            <h2 class="text-3xl font-bold blue-text mb-8 text-center">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-stagger-group="projects">
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
-                    <h3 class="text-xl font-semibold text-amber-300 mb-2">Socrates</h3>
-                    <p class="text-amber-100">Web3 knowledge protocol</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint project-item">
+                    <h3 class="text-xl font-semibold blue-text mb-2">Socrates</h3>
+                    <p class="text-gray-100">Web3 knowledge protocol</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
-                    <h3 class="text-xl font-semibold text-amber-300 mb-2">Glip.gg</h3>
-                    <p class="text-amber-100">Gaming & Web3 rewards</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint project-item">
+                    <h3 class="text-xl font-semibold blue-text mb-2">Glip.gg</h3>
+                    <p class="text-gray-100">Gaming & Web3 rewards</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
-                    <h3 class="text-xl font-semibold text-amber-300 mb-2">BTX Battle Extreme</h3>
-                    <p class="text-amber-100">GameFi campaign</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint project-item">
+                    <h3 class="text-xl font-semibold blue-text mb-2">BTX Battle Extreme</h3>
+                    <p class="text-gray-100">GameFi campaign</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
-                    <h3 class="text-xl font-semibold text-amber-300 mb-2">MEXC</h3>
-                    <p class="text-amber-100">CEX collaboration & marketing</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint project-item">
+                    <h3 class="text-xl font-semibold blue-text mb-2">MEXC</h3>
+                    <p class="text-gray-100">CEX collaboration & marketing</p>
                 </div>
             </div>
         </section>
 
         <section id="achievements" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold text-amber-400 mb-8 text-center">Key Achievements</h2>
-            <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
-                <ul class="list-disc list-inside space-y-2 text-amber-100 text-lg" data-stagger-group="achievements">
+            <h2 class="text-3xl font-bold blue-text mb-8 text-center">Key Achievements</h2>
+            <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint">
+                <ul class="list-disc list-inside space-y-2 text-gray-100 text-lg" data-stagger-group="achievements">
                     <li class="achievement-item">HFC Pak: Grew the app user base to 500,000+ in 4 months.</li>
                     <li class="achievement-item">Glip & BTX Battle Extreme: Achieved 200,000+ app usages in 2 months.</li>
                     <li class="achievement-item">Al Sakeena Collection: Transformed the e-commerce store into a renowned brand.</li>
@@ -513,49 +553,49 @@
         </section>
 
         <section id="additional-projects" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold text-amber-400 mb-8 text-center">Additional Projects</h2>
+            <h2 class="text-3xl font-bold blue-text mb-8 text-center">Additional Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-stagger-group="additional-projects">
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
-                    <h3 class="text-xl font-semibold text-amber-300 mb-2">Local Business Growth</h3>
-                    <p class="text-amber-100">Successfully led marketing campaigns for restaurants, including Hungers Doner, enhancing local visibility and revenue.</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint project-item">
+                    <h3 class="text-xl font-semibold blue-text mb-2">Local Business Growth</h3>
+                    <p class="text-gray-100">Successfully led marketing campaigns for restaurants, including Hungers Doner, enhancing local visibility and revenue.</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint project-item">
-                    <h3 class="text-xl font-semibold text-amber-300 mb-2">Teaching</h3>
-                    <p class="text-amber-100">Conducted training sessions on digital marketing strategies for aspiring professionals.</p>
+                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-blue-faint project-item">
+                    <h3 class="text-xl font-semibold blue-text mb-2">Teaching</h3>
+                    <p class="text-gray-100">Conducted training sessions on digital marketing strategies for aspiring professionals.</p>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="portfolio-section mb-16 text-center">
-            <h2 class="text-3xl font-bold text-amber-400 mb-8">Connect With Me</h2>
+            <h2 class="text-3xl font-bold blue-text mb-8">Connect With Me</h2>
             <div class="space-y-4 flex flex-wrap justify-center items-center">
-                <a href="https://www.linkedin.com/in/shayan-irfan-79530b322" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-gold-faint hover:border-amber-300 transition-colors duration-300 mx-2 my-2">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-amber-300">
+                <a href="https://www.linkedin.com/in/shayan-irfan-79530b322" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-blue-faint hover:border-blue-300 transition-colors duration-300 mx-2 my-2">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 blue-text">
                         <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19.48h-3.04v-11.02h3.04v11.02zm-1.52-12.28c-.99 0-1.63-.66-1.63-1.48 0-.83.64-1.48 1.63-1.48 1 0 1.63.65 1.63 1.48 0 .82-.63 1.48-1.63 1.48zm12.28 12.28h-3.04v-5.9c0-1.56-.58-2.62-2.04-2.62-1.12 0-1.74.83-2.02 1.64 0 .14 0 .3-.02.44v6.44h-3.04s.04-10.84 0-11.02h3.04v1.56c.4-.6 1.12-1.47 2.6-1.47 1.92 0 3.38 1.26 3.38 3.9v5.02z"/>
                     </svg>
                     <span class="block text-sm mt-1">LinkedIn</span>
                 </a>
-                <a href="https://x.com/shayan_malik_" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-gold-faint hover:border-amber-300 transition-colors duration-300 mx-2 my-2">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-amber-300">
+                <a href="https://x.com/shayan_malik_" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-blue-faint hover:border-blue-300 transition-colors duration-300 mx-2 my-2">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 blue-text">
                         <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.89-2.37-.83.5-1.75.85-2.72 1.05C18.07 4.42 16.9 4 15.68 4c-2.76 0-5 2.24-5 5 0 .4.05.8.1.96C8.07 8.37 5.33 7 3.05 4.76c-.4.69-.63 1.49-.63 2.34 0 1.74.89 3.27 2.22 4.17C5.67 11.8 4.8 12.1 3.78 12.1c-.39 0-.79-.04-1.17-.12 0 1.79 1.26 3.28 2.96 3.63-.3.08-.6.13-.9.13-.22 0-.43-.02-.64-.06.44 1.46 1.72 2.53 3.24 2.53-1.24.98-2.8 1.57-4.52 1.57-.28 0-.55-.02-.83-.05 1.56.99 3.44 1.57 5.42 1.57 6.5 0 10.07-5.38 10.07-10.07 0-.15 0-.3-.02-.46.69-.49 1.29-1.1 1.76-1.83z"/>
                     </svg>
                     <span class="block text-sm mt-1">X (Twitter)</span>
                 </a>
             </div>
-            <p class="mt-8 text-amber-200">
+            <p class="mt-8 text-gray-200">
                 Based in Faisalabad, Punjab.
             </p>
-            <p class="text-amber-200">
-                Email: <a href="mailto:shayanindustry007@gamil.com" class="text-amber-400 hover:underline">shayanindustry007@gamil.com</a>
+            <p class="text-gray-200">
+                Email: <a href="mailto:shayanindustry007@gamil.com" class="blue-text hover:underline">shayanindustry007@gamil.com</a>
             </p>
-            <p class="text-amber-200">
-                WhatsApp: <a href="https://wa.me/923267788999" target="_blank" class="text-amber-400 hover:underline">+92 326 7788999</a>
+            <p class="text-gray-200">
+                WhatsApp: <a href="https://wa.me/923267788999" target="_blank" class="blue-text hover:underline">+92 326 7788999</a>
             </p>
         </section>
 
     </div>
 
-    <footer class="bg-gray-900 text-amber-100 py-6 text-center">
+    <footer class="bg-gray-900 text-gray-100 py-6 text-center">
         <div class="max-w-6xl mx-auto px-4">
             <p>&copy; 2025 Shayan Irfan. All rights reserved.</p>
         </div>
@@ -675,10 +715,11 @@
 
                 // Color based on price change (like candles)
                 if (i > 0) {
-                    if (yPrice[i] > yPrice[i-1]) priceColors.push('rgba(0, 255, 0, 1)'); // Full opacity Green for up
-                    else priceColors.push('rgba(255, 0, 0, 1)'); // Full opacity Red for down
+                    // More realistic and "sexier" colors
+                    if (yPrice[i] > yPrice[i-1]) priceColors.push('rgba(0, 180, 0, 0.9)'); // Deeper green for up
+                    else priceColors.push('rgba(180, 0, 0, 0.9)'); // Deeper red for down
                 } else {
-                    priceColors.push('rgba(255, 215, 0, 1)'); // Full opacity Gold for first point
+                    priceColors.push('rgba(0, 180, 255, 0.8)'); // Blue for first point
                 }
             }
 
@@ -703,7 +744,7 @@
                     type: 'scatter3d',
                     name: 'Price',
                     line: {
-                        color: 'rgba(255, 215, 0, 0.7)', // Faint gold line with more presence
+                        color: 'rgba(0, 180, 255, 0.8)', // Blue line
                         width: 3 // Slightly thicker line
                     },
                     marker: {
@@ -721,7 +762,7 @@
                     type: 'scatter3d',
                     name: 'Volume',
                     line: {
-                        color: 'rgba(0, 220, 255, 0.8)', // Brighter Electric blue for volume
+                        color: 'rgba(50, 100, 200, 0.7)', // Deeper, slightly purplish blue for volume
                         width: 2.5
                     },
                     opacity: 0.9
@@ -784,10 +825,11 @@
                 newYPrice.push(val);
 
                 if (i > 0) {
-                    if (newYPrice[i] > currentTraceYPrice[i]) newPriceColors.push('rgba(0, 255, 0, 1)');
-                    else newPriceColors.push('rgba(255, 0, 0, 1)');
+                    // More realistic and "sexier" colors
+                    if (newYPrice[i] > currentTraceYPrice[i]) newPriceColors.push('rgba(0, 180, 0, 0.9)');
+                    else newPriceColors.push('rgba(180, 0, 0, 0.9)');
                 } else {
-                    newPriceColors.push('rgba(255, 215, 0, 1)');
+                    newPriceColors.push('rgba(0, 180, 255, 0.8)');
                 }
             }
             Plotly.restyle(plotlyDiv, { y: [newYPrice], 'marker.color': [newPriceColors] }, [0]); // Update price and colors
