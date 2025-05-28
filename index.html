@@ -24,9 +24,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #0a0a0a, #1a1a1a, #000000, #0a0a0a, #1a1a1a, #000000); /* Dark, non-blue, non-disturbing gradient */
+            background: linear-gradient(45deg, #050505, #101010, #000000, #050505, #101010, #000000); /* Even darker, subtle gradient */
             background-size: 600% 600%;
-            animation: gradientAnimation 30s infinite alternate;
+            animation: gradientAnimation 35s infinite alternate; /* Slightly slower animation */
             z-index: -2; /* Behind the 3D plot and content */
         }
         @keyframes gradientAnimation {
@@ -43,41 +43,41 @@
             width: 100%;
             height: 100%;
             z-index: -1; /* Behind content, in front of gradient */
-            opacity: 0.1; /* Even more subtle opacity for background */
+            opacity: 0.25; /* Increased opacity for more visibility and impact */
             pointer-events: none; /* Allow clicks to pass through */
         }
 
         .gold-text { color: #FFD700; } /* Brighter gold for main accents */
         .accent-gold { color: #FFBF00; } /* Amber/Brighter Gold */
         .bg-dark-card {
-            background-color: rgba(20, 20, 20, 0.85); /* Darker, more opaque card background */
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* More prominent shadow */
-            border: 1px solid rgba(255, 215, 0, 0.15); /* Faint gold border */
+            background-color: rgba(15, 15, 15, 0.9); /* Even darker, more opaque card background */
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* More prominent shadow */
+            border: 1px solid rgba(255, 215, 0, 0.3); /* Faint gold border with more presence */
         }
         .bg-dark-card:hover {
-            transform: translateY(-8px); /* Lift effect increased */
-            box-shadow: 0 12px 25px rgba(255, 215, 0, 0.4); /* Stronger gold glow and shadow */
-            border-color: rgba(255, 215, 0, 0.6); /* More visible border on hover */
+            transform: translateY(-12px); /* Lift effect increased */
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.6); /* Stronger gold glow and shadow */
+            border-color: rgba(255, 215, 0, 0.9); /* More visible border on hover */
         }
 
         .btn-gold {
             background-color: #FFD700; /* Gold button */
             color: #1a1a1a; /* Very dark text on gold button */
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2); /* Subtle gold shadow */
+            box-shadow: 0 6px 12px rgba(255, 215, 0, 0.3); /* Subtle gold shadow */
         }
         .btn-gold:hover {
             background-color: #FFBF00;
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(255, 191, 0, 0.4); /* Enhanced gold shadow on hover */
+            transform: scale(1.06); /* Slightly more scale */
+            box-shadow: 0 8px 20px rgba(255, 191, 0, 0.5); /* Enhanced gold shadow on hover */
         }
 
         /* Section entrance animation */
         .portfolio-section {
             opacity: 0;
-            transform: translateY(30px); /* Increased initial translateY */
-            transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); /* Slower, smoother ease-out-quint */
+            transform: translateY(50px); /* Increased initial translateY for more dramatic entrance */
+            transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1); /* Slower, smoother ease-out-quint */
         }
         .portfolio-section.section-visible {
             opacity: 1;
@@ -86,21 +86,21 @@
 
         /* Glowing text for titles */
         h1, h2 {
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 191, 0, 0.5); /* More prominent golden glow */
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.9), 0 0 30px rgba(255, 191, 0, 0.7); /* Even more prominent golden glow */
         }
 
         /* Hero section specific animations */
         .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
+            animation: fadeInUp 0.9s ease-out forwards; /* Slightly slower */
             opacity: 0; /* Start hidden */
         }
-        .animation-delay-200 { animation-delay: 0.2s; }
-        .animation-delay-400 { animation-delay: 0.4s; }
+        .animation-delay-200 { animation-delay: 0.3s; } /* Increased delay */
+        .animation-delay-400 { animation-delay: 0.6s; } /* Increased delay */
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px); /* More pronounced initial lift */
             }
             to {
                 opacity: 1;
@@ -110,39 +110,71 @@
 
         /* Skill item animation and 3D effect */
         .skill-item {
-            background-color: rgba(30, 30, 30, 0.95); /* Darker skill item background */
-            border-radius: 0.75rem; /* More rounded corners */
-            padding: 1rem 1.25rem; /* Slightly larger padding */
-            margin-bottom: 0.75rem; /* More spacing */
+            background-color: rgba(25, 25, 25, 0.98); /* Even darker skill item background */
+            border-radius: 0.8rem; /* More rounded corners */
+            padding: 1.1rem 1.4rem; /* Slightly larger padding */
+            margin-bottom: 0.8rem; /* More spacing */
             opacity: 0; /* Start hidden for staggered animation */
-            transform: translateY(15px); /* Start slightly below for staggered animation */
-            transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease-in-out;
+            transform: translateY(25px); /* Start slightly below for staggered animation */
+            transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), transform 0.7s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease-in-out;
             display: block;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            color: #f0f0f0; /* Ensure text is visible */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow */
+            color: #f5f5f5; /* Brighter text for skill items */
+            cursor: pointer; /* Indicate clickable */
         }
         .skill-item.stagger-visible {
             opacity: 1;
             transform: translateY(0);
         }
         .skill-item:hover {
-            transform: scale(1.05) translateY(-5px); /* Lift and scale slightly more */
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4); /* More prominent gold glow on hover */
+            transform: scale(1.07) translateY(-10px); /* Lift and scale slightly more */
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6); /* More prominent gold glow on hover */
         }
         /* Subtle 3D perspective for skill items */
         .skill-item-wrapper {
             transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother ease-out-quad */
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother ease-out-quad */
         }
         .skill-item-wrapper:hover {
-            transform: rotateY(6deg) rotateX(3deg) translateZ(15px); /* More noticeable 3D tilt and slight forward movement */
+            transform: rotateY(10deg) rotateX(5deg) translateZ(25px); /* More noticeable 3D tilt and slight forward movement */
         }
+
+        /* Skill Description Styling */
+        .skill-description-container {
+            background-color: rgba(35, 35, 35, 0.95); /* Darker background for description */
+            border-radius: 0.6rem;
+            padding: 1rem;
+            margin-top: 0.75rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.1); /* Inner glow */
+            color: #d0d0d0; /* Slightly muted text for description */
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out, opacity 0.5s ease-out;
+            opacity: 0;
+        }
+        .skill-description-container.open {
+            max-height: 200px; /* Adjust based on max content height */
+            padding: 1rem;
+            opacity: 1;
+        }
+        .skill-description-title {
+            font-weight: 600;
+            color: #FFD700; /* Gold for description title */
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3); /* Subtle glow */
+        }
+        .skill-description-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
 
         /* Staggered animation for experience list items */
         .experience-item {
             opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translateY(25px);
+            transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
         }
         .experience-item.stagger-visible {
             opacity: 1;
@@ -152,8 +184,8 @@
         /* Staggered animation for project list items */
         .project-item {
             opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translateY(25px);
+            transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
         }
         .project-item.stagger-visible {
             opacity: 1;
@@ -163,8 +195,8 @@
         /* Staggered animation for achievement list items */
         .achievement-item {
             opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translateY(25px);
+            transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
         }
         .achievement-item.stagger-visible {
             opacity: 1;
@@ -173,14 +205,14 @@
 
         /* Custom scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 10px; /* Slightly wider */
         }
         ::-webkit-scrollbar-track {
-            background: #1a1a1a;
+            background: #0a0a0a; /* Darker track */
         }
         ::-webkit-scrollbar-thumb {
             background: #FFD700; /* Gold thumb */
-            border-radius: 4px;
+            border-radius: 5px; /* More rounded */
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #FFBF00;
@@ -197,10 +229,10 @@
             z-index: 9999; /* On top of everything */
             pointer-events: none; /* Allow clicks to pass through */
             opacity: 0;
-            transition: opacity 0.05s ease-out; /* Very quick fade */
+            transition: opacity 0.03s ease-out; /* Even quicker fade */
         }
         #thunder-overlay.flash {
-            opacity: 0.3; /* Subtle flash effect */
+            opacity: 0.5; /* Stronger flash effect */
         }
     </style>
 </head>
@@ -257,7 +289,8 @@
         </div>
     </section>
 
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10"> <section id="about" class="portfolio-section mb-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+        <section id="about" class="portfolio-section mb-16">
             <h2 class="text-3xl font-bold text-amber-400 mb-6 text-center">About Me</h2>
             <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-gold-faint">
                 <p class="text-lg leading-relaxed mb-4">I am a digital marketing expert with over 3 years of experience in social media strategy, content creation, and targeted advertising across platforms such as Facebook, Instagram, Twitter, and WhatsApp. Proven track record of boosting online engagement and brand visibility for diverse industries, including Real Estate, Crypto, and Forex. Skilled in creating visually compelling content, from logos to photos, that resonates with target audiences and strengthens brand identity.</p>
@@ -273,21 +306,81 @@
                     <div>
                         <h3 class="text-xl font-semibold text-amber-300 mb-3">Core Marketing</h3>
                         <ul class="space-y-2 text-amber-100" data-stagger-group="skills-core">
-                            <li class="skill-item skill-item-wrapper">Business Development Manager</li>
-                            <li class="skill-item skill-item-wrapper">E-Commerce Growth</li>
-                            <li class="skill-item skill-item-wrapper">Social Media Marketing (SMM)</li>
-                            <li class="skill-item skill-item-wrapper">Brand Building & Positioning</li>
-                            <li class="skill-item skill-item-wrapper">Digital Marketing</li>
-                            <li class="skill-item skill-item-wrapper">Content Creation</li>
-                            <li class="skill-item skill-item-wrapper">Community Management</li>
+                            <li class="skill-item skill-item-wrapper" data-skill-id="business-development-manager">
+                                Business Development Manager
+                                <div class="skill-description-container">
+                                    <h4 class="skill-description-title">Business Development Manager Intern</h4>
+                                    <p class="skill-description-text">Drove strategic partnerships and sales efforts, achieving over $240M in trading volume during the internship. Successfully built 370+ EFTT (Exchange-Facilitated Token Trades) and developed a robust network of 300+ influencers, enhancing brand visibility and growth across digital channels.</p>
+                                </div>
+                            </li>
+                            <li class="skill-item skill-item-wrapper" data-skill-id="e-commerce-growth">
+                                E-Commerce Growth
+                                <div class="skill-description-container">
+                                    <h4 class="skill-description-title">E-Commerce Growth Strategist</h4>
+                                    <p class="skill-description-text">Scaled Al Sakeena from inception to 37,000+ customers in just 3 months by leading e-commerce setup, customer acquisition, funnel optimization, and conversion strategy.</p>
+                                </div>
+                            </li>
+                            <li class="skill-item skill-item-wrapper" data-skill-id="social-media-marketing">
+                                Social Media Marketing (SMM)
+                                <div class="skill-description-container">
+                                    <h4 class="skill-description-title">Social Media Marketing Specialist</h4>
+                                    <p class="skill-description-text">Executed high-impact social media strategies for Pearl Residencia and Citi Housing, increasing brand engagement, reach, and lead generation through targeted campaigns and performance analytics.</p>
+                                </div>
+                            </li>
+                            <li class="skill-item skill-item-wrapper" data-skill-id="brand-building">
+                                Brand Building & Positioning
+                                <div class="skill-description-container">
+                                    <h4 class="skill-description-title">Brand Strategist</h4>
+                                    <p class="skill-description-text">Crafted compelling brand identities and market positioning strategies, ensuring strong differentiation, resonance with target audiences, and alignment with long-term business goals.</p>
+                                </div>
+                            </li>
+                            <li class="skill-item skill-item-wrapper" data-skill-id="digital-marketing">
+                                Digital Marketing
+                                <div class="skill-description-container">
+                                    <h4 class="skill-description-title">Digital Marketing Expert</h4>
+                                    <p class="skill-description-text">Delivered comprehensive digital marketing campaigns including SEO, SEM, email marketing, and paid ads—focusing on ROI-driven approaches to drive traffic, sales, and brand growth.</p>
+                                </div>
+                            </li>
+                            <li class="skill-item skill-item-wrapper" data-skill-id="content-creation">
+                                Content Creation
+                                <div class="skill-description-container">
+                                    <h4 class="skill-description-title">Content Creator & Strategist</h4>
+                                    <p class="skill-description-text">Produced high-performing content across formats including blogs, videos, and social media assets—tailored to align with brand voice and engage diverse audiences.</p>
+                                </div>
+                            </li>
+                            <li class="skill-item skill-item-wrapper" data-skill-id="community-management">
+                                Community Management
+                                <div class="skill-description-container">
+                                    <h4 class="skill-description-title">Community Manager</h4>
+                                    <p class="skill-description-text">Fostered vibrant online communities by moderating discussions, increasing engagement, managing feedback loops, and nurturing customer loyalty through active support.</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-amber-300 mb-3">Technical & Other</h3>
                         <ul class="space-y-2 text-amber-100" data-stagger-group="skills-tech">
-                            <li class="skill-item skill-item-wrapper">Data Analytics</li>
-                            <li class="skill-item skill-item-wrapper">AI Editing</li>
-                            <li class="skill-item skill-item-wrapper">Data Entry</li>
+                            <li class="skill-item skill-item-wrapper" data-skill-id="data-analytics">
+                                Data Analytics
+                                <div class="skill-description-container">
+                                    <h4 class="skill-description-title">Data Analyst</h4>
+                                    <p class="skill-description-text">Analyzed business and marketing data to uncover actionable insights, support decision-making, and measure campaign effectiveness using tools like Excel, Google Analytics, and BI dashboards.</p>
+                                </div>
+                            </li>
+                            <li class="skill-item skill-item-wrapper" data-skill-id="ai-editing">
+                                AI Editing
+                                <div class="skill-description-container">
+                                    <h4 class="skill-description-title">AI Content Editor</h4>
+                                    <p class="skill-description-text">Utilized AI-driven tools to optimize written and visual content, streamline production workflows, and ensure consistency and quality across marketing materials.</p>
+                                </div>
+                            </li>
+                            <li class="skill-item skill-item-wrapper" data-skill-id="data-entry">
+                                Data Entry
+                                <div class="skill-description-container">
+                                    <h4 class="skill-description-title">Data Entry Specialist</h4>
+                                    <p class="skill-description-text">Managed high-volume data input tasks with precision and efficiency, ensuring data integrity and contributing to streamlined business operations.</p>
+                                </div>
+                            </li>
                         </ul>
                         <h3 class="text-xl font-semibold text-amber-300 mt-4 mb-3">Languages</h3>
                         <ul class="space-y-2 text-amber-100" data-stagger-group="skills-lang">
@@ -513,7 +606,7 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('section-visible');
                     // Stagger animation for child elements
-                    const staggerGroups = entry.target.querySelectorAll('[data-stagger-group]'); // FIX: Use querySelectorAll
+                    const staggerGroups = entry.target.querySelectorAll('[data-stagger-group]');
                     staggerGroups.forEach(staggerGroup => {
                         let delay = 0;
                         const items = staggerGroup.children;
@@ -557,7 +650,7 @@
         let plotInitialized = false;
 
         function create3DPlot() {
-            const numPoints = 120; // Slightly reduced for performance
+            const numPoints = 250; // Increased for even denser chart
             let x = []; // Time/Index
             let y = []; // Price
             let z = []; // Volume/Depth
@@ -567,17 +660,17 @@
             for (let i = 0; i < numPoints; i++) {
                 x.push(i);
                 // Simulate price movement
-                currentPrice += (Math.random() - 0.5) * 0.05; // Smaller random fluctuations
-                currentPrice = Math.max(0.1, Math.min(0.9, currentPrice)); // Keep within reasonable bounds (0.1 to 0.9)
+                currentPrice += (Math.random() - 0.5) * 0.08; // Slightly larger random fluctuations
+                currentPrice = Math.max(0.02, Math.min(0.98, currentPrice)); // Keep within wider bounds
                 y.push(currentPrice);
-                z.push(Math.random() * 0.4); // Simulate volume/depth
+                z.push(Math.random() * 0.6); // Simulate volume/depth, increased range
 
                 // Color based on price change (like candles)
                 if (i > 0) {
-                    if (y[i] > y[i-1]) priceColors.push('rgba(0, 200, 0, 0.7)'); // Green for up
-                    else priceColors.push('rgba(200, 0, 0, 0.7)'); // Red for down
+                    if (y[i] > y[i-1]) priceColors.push('rgba(0, 255, 0, 0.9)'); // Brighter Green for up
+                    else priceColors.push('rgba(255, 0, 0, 0.9)'); // Brighter Red for down
                 } else {
-                    priceColors.push('rgba(255, 215, 0, 0.7)'); // Gold for first point
+                    priceColors.push('rgba(255, 215, 0, 0.9)'); // Gold for first point
                 }
             }
 
@@ -590,27 +683,27 @@
                     type: 'scatter3d',
                     name: 'Price',
                     line: {
-                        color: 'rgba(255, 215, 0, 0.3)', // Faint gold line
-                        width: 1.5
+                        color: 'rgba(255, 215, 0, 0.5)', // Faint gold line with more presence
+                        width: 2.5 // Slightly thicker line
                     },
                     marker: {
-                        size: 2,
+                        size: 3.5, // Slightly larger markers
                         color: priceColors, // Dynamic colors based on price change
-                        opacity: 0.7,
+                        opacity: 0.95,
                         symbol: 'circle'
                     }
                 },
                 {
-                    x: x.map(val => val + (Math.random() * 10 - 5)), // Slightly offset for volume on X
-                    y: y.map(val => val - (Math.random() * 0.1 + 0.05)), // Below price line on Y
-                    z: z.map(val => Math.random() * 0.2), // Smaller volume on Z
+                    x: x.map(val => val + (Math.random() * 20 - 10)), // More offset for volume on X
+                    y: y.map(val => val - (Math.random() * 0.2 + 0.1)), // Further below price line on Y
+                    z: z.map(val => Math.random() * 0.4), // Slightly larger volume on Z
                     mode: 'markers',
                     type: 'scatter3d',
                     name: 'Volume',
                     marker: {
-                        size: 1.5,
-                        color: 'rgba(100, 100, 100, 0.4)', // Very muted gray for volume
-                        opacity: 0.5,
+                        size: 2.5, // Slightly larger volume markers
+                        color: 'rgba(150, 150, 150, 0.7)', // Muted gray for volume with more opacity
+                        opacity: 0.8,
                         symbol: 'circle'
                     }
                 }
@@ -626,8 +719,8 @@
                     yaxis: { visible: false, range: [0, 1] },
                     zaxis: { visible: false, range: [0, 1] },
                     camera: {
-                        eye: { x: 1.5, y: 1.5, z: 1.5 }, // Initial camera position
-                        center: { x: numPoints / 2, y: 0.5, z: 0.25 }, // Center of the plot
+                        eye: { x: 2.0, y: 2.0, z: 2.0 }, // Initial camera position, slightly further back
+                        center: { x: numPoints / 2, y: 0.5, z: 0.3 }, // Center of the plot
                         up: { x: 0, y: 0, z: 1 }
                     },
                     aspectmode: 'data'
@@ -652,30 +745,30 @@
             }
 
             const camera = plotlyDiv._fullLayout.scene.camera;
-            const orbitRadius = 2.0; // Orbit radius
-            const orbitSpeed = 0.002; // Slower orbit speed
+            const orbitRadius = 3.0; // Larger orbit radius
+            const orbitSpeed = 0.002; // Slower orbit speed for smoother feel
 
             const newEyeX = orbitRadius * Math.cos(frame * orbitSpeed);
             const newEyeY = orbitRadius * Math.sin(frame * orbitSpeed);
-            const newEyeZ = 0.8 + 0.5 * Math.sin(frame * 0.001); // Subtle vertical bob
+            const newEyeZ = 1.2 + 0.9 * Math.sin(frame * 0.001); // More pronounced vertical bob
 
             Plotly.relayout(plotlyDiv, 'scene.camera.eye', { x: newEyeX, y: newEyeY, z: newEyeZ });
 
             // Simulate slight data fluctuations for dynamism
-            const numPoints = 120;
+            const numPoints = 250;
             let newY = [];
             let newPriceColors = [];
             const currentTraceY = plotlyDiv.data[0].y;
             for (let i = 0; i < numPoints; i++) {
-                let val = currentTraceY[i] + (Math.random() - 0.5) * 0.002; // Very small price change
-                val = Math.max(0.1, Math.min(0.9, val));
+                let val = currentTraceY[i] + (Math.random() - 0.5) * 0.004; // Slightly larger price change
+                val = Math.max(0.02, Math.min(0.98, val));
                 newY.push(val);
 
                 if (i > 0) {
-                    if (newY[i] > currentTraceY[i]) newPriceColors.push('rgba(0, 200, 0, 0.7)');
-                    else newPriceColors.push('rgba(200, 0, 0, 0.7)');
+                    if (newY[i] > currentTraceY[i]) newPriceColors.push('rgba(0, 255, 0, 0.9)');
+                    else newPriceColors.push('rgba(255, 0, 0, 0.9)');
                 } else {
-                    newPriceColors.push('rgba(255, 215, 0, 0.7)');
+                    newPriceColors.push('rgba(255, 215, 0, 0.9)');
                 }
             }
             Plotly.restyle(plotlyDiv, { y: [newY], 'marker.color': [newPriceColors] }, [0]); // Update price and colors
@@ -690,14 +783,14 @@
             thunderOverlay.classList.add('flash');
             setTimeout(() => {
                 thunderOverlay.classList.remove('flash');
-            }, 100); // Flash duration
+            }, 80); // Even quicker flash duration
         }
 
-        // Trigger thunder flash randomly (e.g., every 10-30 seconds)
+        // Trigger thunder flash randomly (e.g., every 5-20 seconds)
         setInterval(() => {
-            const randomDelay = Math.random() * 20000 + 10000; // 10 to 30 seconds
+            const randomDelay = Math.random() * 15000 + 5000; // 5 to 20 seconds
             setTimeout(triggerThunderFlash, randomDelay);
-        }, 30000); // Check every 30 seconds to potentially trigger a flash
+        }, 20000); // Check every 20 seconds to potentially trigger a flash
 
         // Initialize and animate Plotly on window load
         window.onload = function() {
@@ -717,6 +810,36 @@
         window.onbeforeunload = function() {
             cancelAnimationFrame(animationFrameId);
         };
+
+        // Skill Description Toggle Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const skillItems = document.querySelectorAll('#skills ul[data-stagger-group="skills-core"] .skill-item, #skills ul[data-stagger-group="skills-tech"] .skill-item, #skills ul[data-stagger-group="skills-lang"] .skill-item');
+
+            skillItems.forEach(item => {
+                item.addEventListener('click', (event) => {
+                    // Prevent click on the description from toggling parent
+                    if (event.target.closest('.skill-description-container')) {
+                        return;
+                    }
+
+                    const descriptionContainer = item.querySelector('.skill-description-container');
+                    if (descriptionContainer) {
+                        // Close all other open descriptions in the same group
+                        const parentUl = item.closest('ul');
+                        if (parentUl) {
+                            parentUl.querySelectorAll('.skill-description-container.open').forEach(openDesc => {
+                                if (openDesc !== descriptionContainer) {
+                                    openDesc.classList.remove('open');
+                                }
+                            });
+                        }
+
+                        // Toggle the clicked description
+                        descriptionContainer.classList.toggle('open');
+                    }
+                });
+            });
+        });
 
     </script>
 </body>
