@@ -6,118 +6,115 @@
     <title>Shayan Irfan - Web3 Marketing Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000; /* Pure black */
-            color: #E0E0E0; /* Soft white for general text */
+            color: #F5F5F5; /* Very light white for general text */
             overflow-x: hidden; /* Prevent horizontal scroll */
-            position: relative; /* Needed for pseudo-element background */
+            position: relative;
         }
 
-        /* Animated gradient background pseudo-element - deeper, subtle texture */
-        body::before {
-            content: '';
+        /* Abstract Gradient Background Element with subtle 3D */
+        .gradient-background-shape {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #010105, #05050A, #000000, #010105, #05050A, #000000);
-            background-size: 600% 600%;
-            animation: gradientAnimation 50s infinite alternate; /* Slower, more ethereal animation */
-            z-index: -2; /* Behind the 3D plot and content */
-        }
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* 3D Plot container for Cosmic Convergence */
-        #plotly-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Behind content, in front of gradient */
-            opacity: 0.55; /* Increased opacity for more presence */
-            pointer-events: none; /* Allow clicks to pass through */
+            top: 50%;
+            left: 50%;
+            transform-style: preserve-3d; /* Enable 3D transformations */
+            transform: translate(-50%, -50%); /* Initial centering */
+            width: 120vw; /* Larger than viewport to cover */
+            height: 120vh; /* Larger than viewport to cover */
+            background: radial-gradient(circle at center, rgba(147, 112, 219, 0.6), rgba(255, 105, 180, 0.4), rgba(0, 0, 0, 0));
+            border-radius: 50%; /* Circular shape */
+            filter: blur(150px); /* Soft blur for ethereal effect */
+            z-index: -1; /* Behind content */
+            opacity: 0.7; /* Subtle presence */
+            animation: rotateGradient 60s linear infinite; /* Slow, continuous rotation with 3D tilt */
         }
 
-        /* Cosmic Convergence Theme Colors */
-        .cosmic-blue-text { color: #6A5ACD; } /* Slate Blue / Cosmic Blue */
-        .nebula-pink-text { color: #DA70D6; } /* Orchid / Nebula Pink */
+        @keyframes rotateGradient {
+            0% { transform: translate(-50%, -50%) rotate(0deg) rotateX(0deg) rotateY(0deg); }
+            25% { transform: translate(-50%, -50%) rotate(90deg) rotateX(5deg) rotateY(-5deg); }
+            50% { transform: translate(-50%, -50%) rotate(180deg) rotateX(0deg) rotateY(0deg); }
+            75% { transform: translate(-50%, -50%) rotate(270deg) rotateX(-5deg) rotateY(5deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg) rotateX(0deg) rotateY(0deg); }
+        }
+
+        /* Theme Colors */
+        .accent-purple-text { color: #9370DB; } /* MediumPurple */
+        .accent-pink-text { color: #FF69B4; } /* HotPink */
+
         .bg-dark-card {
-            background-color: rgba(10, 10, 20, 0.7); /* Darker, slightly more transparent, frosted glass effect */
-            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9); /* Stronger, deeper shadow */
-            border: 1px solid rgba(106, 90, 205, 0.3); /* Faint cosmic blue border */
+            background-color: rgba(10, 10, 10, 0.8); /* Dark, slightly transparent */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7); /* Subtle shadow */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Faint white border */
         }
         .bg-dark-card:hover {
-            transform: translateY(-20px); /* More pronounced lift effect */
-            box-shadow: 0 35px 70px rgba(106, 90, 205, 0.7); /* Stronger cosmic blue glow and shadow */
-            border-color: rgba(106, 90, 205, 1); /* Intense cosmic blue border on hover */
+            transform: translateY(-10px); /* Gentle lift */
+            box-shadow: 0 15px 40px rgba(147, 112, 219, 0.4); /* Soft purple glow */
+            border-color: rgba(147, 112, 219, 0.5); /* Matching border glow */
         }
 
-        .btn-cosmic {
-            background-color: transparent; /* Transparent button background */
-            border: 2px solid #6A5ACD; /* Cosmic Blue border */
-            color: #6A5ACD; /* Cosmic Blue text */
-            font-weight: 700;
-            transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
-            box-shadow: 0 0 20px rgba(106, 90, 205, 0.6); /* Strong cosmic blue glow */
+        .btn-elegant {
+            background-color: transparent;
+            border: 2px solid #9370DB; /* Purple border */
+            color: #9370DB; /* Purple text */
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
         }
-        .btn-cosmic:hover {
-            background-color: #6A5ACD; /* Fill with Cosmic Blue on hover */
-            color: #FFFFFF; /* White text on hover */
-            transform: scale(1.1); /* More pronounced scale */
-            box-shadow: 0 0 30px rgba(106, 90, 205, 0.9), 0 0 50px rgba(106, 90, 205, 0.7); /* Enhanced cosmic blue glow on hover */
+        .btn-elegant:hover {
+            background-color: #9370DB; /* Fill with purple */
+            color: #FFFFFF; /* White text */
+            transform: scale(1.05); /* Slight scale */
+            border-color: #9370DB;
         }
 
         /* Section entrance animation */
         .portfolio-section {
             opacity: 0;
-            transform: translateY(80px); /* Increased initial translateY for more dramatic entrance */
-            transition: opacity 1.4s cubic-bezier(0.23, 1, 0.32, 1), transform 1.4s cubic-bezier(0.23, 1, 0.32, 1); /* Slower, smoother ease-out-quint */
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
         .portfolio-section.section-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Glowing text for titles */
-        h1, h2 {
-            text-shadow:
-                0 0 25px rgba(106, 90, 205, 1), /* Strong central cosmic blue glow */
-                0 0 50px rgba(106, 90, 205, 0.8), /* Wider, softer glow */
-                0 0 75px rgba(106, 90, 205, 0.6); /* Even wider, fainter glow */
-        }
-
         /* Stylish Name Specifics */
         .stylish-name {
             font-weight: 800; /* Extra bold */
-            letter-spacing: 0.1em; /* More pronounced letter spacing */
-            text-shadow:
-                0 0 30px rgba(106, 90, 205, 1), /* Intense central cosmic blue glow */
-                0 0 60px rgba(106, 90, 205, 0.8), /* Wider, softer glow */
-                0 0 90px rgba(106, 90, 205, 0.6); /* Even wider, fainter glow */
+            letter-spacing: 0.15em; /* Wide letter spacing */
+            font-size: 5rem; /* Large font size for impact */
+            line-height: 1; /* Tight line height */
+            text-transform: uppercase; /* Uppercase like reference */
+            margin-bottom: 0.5rem;
+            color: #FFFFFF; /* White text for name */
         }
+        @media (min-width: 768px) {
+            .stylish-name {
+                font-size: 8rem; /* Even larger on desktop */
+            }
+        }
+        @media (max-width: 767px) {
+            .stylish-name {
+                font-size: 3rem; /* Adjust for mobile */
+            }
+        }
+
 
         /* Hero section specific animations */
         .animate-fade-in-up {
-            animation: fadeInUp 1.2s ease-out forwards; /* Slightly slower */
-            opacity: 0; /* Start hidden */
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
         }
-        .animation-delay-200 { animation-delay: 0.6s; } /* Increased delay */
-        .animation-delay-400 { animation-delay: 1.2s; } /* Increased delay */
+        .animation-delay-200 { animation-delay: 0.4s; }
+        .animation-delay-400 { animation-delay: 0.8s; }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(60px); /* More pronounced initial lift */
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -125,91 +122,82 @@
             }
         }
 
-        /* Skill item animation and 3D effect */
+        /* Skill item styling (minimalist) */
         .skill-item {
-            background-color: rgba(15, 15, 30, 0.85); /* Darker, slightly transparent skill item background */
-            border-radius: 1.2rem; /* More rounded corners */
-            padding: 1.4rem 1.8rem; /* Slightly larger padding */
-            margin-bottom: 1.2rem; /* More spacing */
-            opacity: 0; /* Start hidden for staggered animation */
-            transform: translateY(40px); /* Start slightly below for staggered animation */
-            transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.9s ease-in-out, border-color 0.9s ease-in-out;
-            display: block;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9); /* Stronger shadow */
-            color: #F0F0F0; /* Brighter text for skill items */
-            cursor: pointer; /* Indicate clickable */
-            transform-style: preserve-3d;
-            border: 1px solid rgba(106, 90, 205, 0.15); /* Very faint cosmic blue border */
+            background-color: rgba(15, 15, 15, 0.9);
+            border-radius: 0.75rem;
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out, background-color 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05); /* Very faint border */
         }
         .skill-item.stagger-visible {
             opacity: 1;
             transform: translateY(0);
         }
         .skill-item:hover {
-            transform: scale(1.1) translateY(-18px) rotateY(18deg) rotateX(10deg) translateZ(40px); /* More noticeable 3D tilt and lift */
-            box-shadow: 0 25px 50px rgba(106, 90, 205, 0.9); /* More prominent cosmic blue glow on hover */
-            border-color: rgba(106, 90, 205, 0.8); /* Stronger cosmic blue border on hover */
+            background-color: rgba(25, 25, 25, 0.95); /* Slightly lighter on hover */
+            border-color: rgba(147, 112, 219, 0.3); /* Subtle purple border on hover */
         }
 
         /* Skill Description Styling */
         .skill-description-container {
-            background-color: rgba(25, 25, 40, 0.95); /* Darker background for description */
-            border-radius: 1rem;
-            padding: 0; /* Initial padding 0 */
-            margin-top: 1rem;
-            border: 1px solid rgba(106, 90, 205, 0.5);
-            box-shadow: inset 0 0 20px rgba(106, 90, 205, 0.3); /* Inner cosmic blue glow */
-            color: #E8E8E8; /* Slightly muted text for description */
+            background-color: rgba(20, 20, 20, 0.95);
+            border-radius: 0.6rem;
+            padding: 0;
+            margin-top: 0.7rem;
+            border: 1px solid rgba(147, 112, 219, 0.2);
+            color: #E0E0E0;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.8s ease-out, padding 0.8s ease-out, opacity 0.8s ease-out;
+            transition: max-height 0.6s ease-out, padding 0.6s ease-out, opacity 0.6s ease-out;
             opacity: 0;
         }
         .skill-description-container.open {
-            max-height: 700px; /* Increased to accommodate longer content */
-            padding: 1.6rem; /* Apply padding when open */
+            max-height: 500px; /* Adjust as needed */
+            padding: 1.2rem;
             opacity: 1;
         }
         .skill-description-title {
-            font-weight: 700; /* Bolder title */
-            color: #6A5ACD; /* Cosmic Blue for description title */
-            margin-bottom: 0.8rem;
-            text-shadow: 0 0 10px rgba(106, 90, 205, 0.6); /* Subtle glow */
+            font-weight: 600;
+            color: #9370DB;
+            margin-bottom: 0.6rem;
         }
         .skill-description-text {
-            font-size: 1.1rem; /* Slightly larger text */
-            line-height: 1.8;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* Quote Section Styling */
         .quote-section {
-            background-color: rgba(15, 15, 30, 0.85); /* Darker background for quote */
-            border-radius: 1.2rem;
-            padding: 2rem;
-            margin-top: 3rem;
-            border: 2px solid rgba(106, 90, 205, 0.8); /* Glowing cosmic blue border */
-            box-shadow: 0 0 40px rgba(106, 90, 205, 0.6); /* Stronger cosmic blue glow */
+            background-color: rgba(15, 15, 15, 0.85);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
         }
         .quote-text {
-            font-size: 1.45rem; /* Larger font size */
+            font-size: 1.15rem;
             font-style: italic;
-            color: #6A5ACD; /* Cosmic Blue text for quotes */
-            line-height: 2.0;
-            text-shadow: 0 0 15px rgba(106, 90, 205, 0.7); /* Subtle glow on text */
+            color: #E0E0E0;
+            line-height: 1.7;
         }
         .quote-author {
-            font-size: 1.2rem;
-            color: #F0F0F0;
-            margin-top: 1.5rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            color: #B0B0B0;
+            margin-top: 0.8rem;
+            font-weight: 500;
         }
 
         /* Staggered animation for list items */
         .experience-item, .project-item, .achievement-item {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translateY(20px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
         .experience-item.stagger-visible, .project-item.stagger-visible, .achievement-item.stagger-visible {
             opacity: 1;
@@ -218,86 +206,67 @@
 
         /* Custom scrollbar */
         ::-webkit-scrollbar {
-            width: 16px; /* Wider */
+            width: 10px;
         }
         ::-webkit-scrollbar-track {
-            background: #080815; /* Even darker, slightly blue track */
+            background: #101010;
         }
         ::-webkit-scrollbar-thumb {
-            background: #6A5ACD; /* Cosmic Blue thumb */
-            border-radius: 8px; /* More rounded */
-            border: 3px solid #151525; /* Darker border for definition */
+            background: #9370DB; /* Purple thumb */
+            border-radius: 5px;
+            border: 2px solid #000000;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #5A4ACD;
-        }
-
-        /* Cosmic Pulse effect overlay */
-        #cosmic-pulse-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(106, 90, 205, 0); /* Start transparent */
-            z-index: 9999; /* On top of everything */
-            pointer-events: none; /* Allow clicks to pass through */
-            opacity: 0;
-            transition: opacity 0.05s ease-out; /* Quick fade */
-        }
-        #cosmic-pulse-overlay.flash {
-            opacity: 0.8; /* Stronger pulse effect */
-            background-color: rgba(106, 90, 205, 0.4); /* Cosmic blue pulse */
+            background: #8A2BE2;
         }
     </style>
 </head>
 <body class="bg-black text-white">
 
-    <div id="plotly-background"></div>
-    <div id="cosmic-pulse-overlay"></div>
+    <div class="gradient-background-shape"></div>
 
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md shadow-lg transition-all duration-300">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-70 backdrop-blur-sm transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
-                <a href="#home" class="text-2xl font-bold cosmic-blue-text">Shayan Irfan</a>
+                <a href="#home" class="text-2xl font-bold text-white">Shayan Irfan</a>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="cosmic-blue-text hover:text-purple-400 focus:outline-none">
+                    <button id="mobile-menu-button" class="text-white hover:text-gray-300 focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
                 </div>
                 <ul class="hidden md:flex space-x-6">
-                    <li><a href="#home" class="hover:text-purple-400 transition-colors duration-300">Home</a></li>
-                    <li><a href="#about" class="hover:text-purple-400 transition-colors duration-300">About</a></li>
-                    <li><a href="#skills" class="hover:text-purple-400 transition-colors duration-300">Skills</a></li>
-                    <li><a href="#experience" class="hover:text-purple-400 transition-colors duration-300">Experience</a></li>
-                    <li><a href="#projects" class="hover:text-purple-400 transition-colors duration-300">Projects</a></li>
-                    <li><a href="#achievements" class="hover:text-purple-400 transition-colors duration-300">Achievements</a></li>
-                    <li><a href="#contact" class="hover:text-purple-400 transition-colors duration-300">Connect</a></li>
+                    <li><a href="#home" class="text-white hover:text-gray-300 transition-colors duration-300">Home</a></li>
+                    <li><a href="#about" class="text-white hover:text-gray-300 transition-colors duration-300">About</a></li>
+                    <li><a href="#skills" class="text-white hover:text-gray-300 transition-colors duration-300">Skills</a></li>
+                    <li><a href="#experience" class="text-white hover:text-gray-300 transition-colors duration-300">Experience</a></li>
+                    <li><a href="#projects" class="text-white hover:text-gray-300 transition-colors duration-300">Projects</a></li>
+                    <li><a href="#achievements" class="text-white hover:text-gray-300 transition-colors duration-300">Achievements</a></li>
+                    <li><a href="#contact" class="text-white hover:text-gray-300 transition-colors duration-300">Connect</a></li>
                 </ul>
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-gray-900 bg-opacity-95">
             <ul class="flex flex-col items-center py-4 space-y-2">
-                <li><a href="#home" class="block py-2 px-4 text-gray-200 hover:text-purple-400 transition-colors duration-300">Home</a></li>
-                <li><a href="#about" class="block py-2 px-4 text-gray-200 hover:text-purple-400 transition-colors duration-300">About</a></li>
-                <li><a href="#skills" class="block py-2 px-4 text-gray-200 hover:text-purple-400 transition-colors duration-300">Skills</a></li>
-                <li><a href="#experience" class="block py-2 px-4 text-gray-200 hover:text-purple-400 transition-colors duration-300">Experience</a></li>
-                <li><a href="#projects" class="block py-2 px-4 text-gray-200 hover:text-purple-400 transition-colors duration-300">Projects</a></li>
-                <li><a href="#achievements" class="block py-2 px-4 text-gray-200 hover:text-purple-400 transition-colors duration-300">Achievements</a></li>
-                <li><a href="#contact" class="block py-2 px-4 text-gray-200 hover:text-purple-400 transition-colors duration-300">Connect</a></li>
+                <li><a href="#home" class="block py-2 px-4 text-gray-200 hover:text-gray-300 transition-colors duration-300">Home</a></li>
+                <li><a href="#about" class="block py-2 px-4 text-gray-200 hover:text-gray-300 transition-colors duration-300">About</a></li>
+                <li><a href="#skills" class="block py-2 px-4 text-gray-200 hover:text-gray-300 transition-colors duration-300">Skills</a></li>
+                <li><a href="#experience" class="block py-2 px-4 text-gray-200 hover:text-gray-300 transition-colors duration-300">Experience</a></li>
+                <li><a href="#projects" class="block py-2 px-4 text-gray-200 hover:text-gray-300 transition-colors duration-300">Projects</a></li>
+                <li><a href="#achievements" class="block py-2 px-4 text-gray-200 hover:text-gray-300 transition-colors duration-300">Achievements</a></li>
+                <li><a href="#contact" class="block py-2 px-4 text-gray-200 hover:text-gray-300 transition-colors duration-300">Connect</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 pb-12 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 pb-12">
         <div class="max-w-3xl mx-auto">
-            <h1 class="text-5xl md:text-7xl font-bold cosmic-blue-text mb-6 animate-fade-in-up stylish-name">Shayan Irfan</h1>
-            <p class="text-xl md:text-2xl text-white mb-10 animate-fade-in-up animation-delay-200">Social Media Marketing Specialist / Web3 Marketing Strategist</p>
+            <h1 class="font-bold mb-4 animate-fade-in-up stylish-name">SHAYAN IRFAN</h1>
+            <p class="text-lg md:text-xl text-white mb-10 animate-fade-in-up animation-delay-200 uppercase tracking-wider">SOCIAL MEDIA MARKETING SPECIALIST <span class="mx-2">—</span> MARKETING STRATEGIST</p>
             <div class="space-x-0 space-y-4 sm:space-x-4 sm:space-y-0 animate-fade-in-up animation-delay-400">
-                <a href="new CV SHAYAN.pdf" target="_blank" class="inline-block btn-cosmic font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <a href="new CV SHAYAN.pdf" target="_blank" class="inline-block btn-elegant font-semibold py-3 px-8 rounded-lg shadow-md">
                     📄 Download Resume
                 </a>
-                <a href="https://wa.me/923267788999" target="_blank" class="inline-block btn-cosmic font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300">
+                <a href="https://wa.me/923267788999" target="_blank" class="inline-block btn-elegant font-semibold py-3 px-8 rounded-lg shadow-md">
                     💬 Message on WhatsApp
                 </a>
             </div>
@@ -306,11 +275,11 @@
 
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <section id="about" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold cosmic-blue-text mb-6 text-center">About Me</h2>
-            <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint">
+            <h2 class="text-3xl font-bold accent-purple-text mb-6 text-center">About Me</h2>
+            <div class="bg-dark-card p-6 rounded-lg">
                 <p class="text-lg leading-relaxed mb-4">I am a digital marketing expert with over 3 years of experience in social media strategy, content creation, and targeted advertising across platforms such as Facebook, Instagram, Twitter, and WhatsApp. Proven track record of boosting online engagement and brand visibility for diverse industries, including Real Estate, Crypto, and Forex. Skilled in creating visually compelling content, from logos to photos, that resonates with target audiences and strengthens brand identity.</p>
-                <p class="text-lg leading-relaxed mb-4"><strong class="cosmic-blue-text">Bonus Expertise:</strong> Proficient in data entry, AI editing, and offering a full-service marketing approach tailored to meet the unique needs of businesses.</p>
-                <p class="text-lg leading-relaxed"><strong class="cosmic-blue-text">Web3 Focus:</strong> Web3 marketing specialist with 3+ years of experience helping projects grow from zero to scale. I’ve built a 500K+ community and collaborated with top players like MEXC and Socrates.</p>
+                <p class="text-lg leading-relaxed mb-4"><strong class="accent-purple-text">Bonus Expertise:</strong> Proficient in data entry, AI editing, and offering a full-service marketing approach tailored to meet the unique needs of businesses.</p>
+                <p class="text-lg leading-relaxed"><strong class="accent-purple-text">Web3 Focus:</strong> Web3 marketing specialist with 3+ years of experience helping projects grow from zero to scale. I’ve built a 500K+ community and collaborated with top players like MEXC and Socrates.</p>
 
                 <div class="quote-section">
                     <p class="quote-text">"In the realm of business development, we don't just compete; we conquer. Every handshake, every deal, a step towards absolute market dominance."</p>
@@ -320,11 +289,11 @@
         </section>
 
         <section id="skills" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold cosmic-blue-text mb-6 text-center">Skills</h2>
-            <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h2 class="text-3xl font-bold accent-purple-text mb-6 text-center">Skills</h2>
+            <div class="bg-dark-card p-6 rounded-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <h3 class="text-xl font-semibold cosmic-blue-text mb-3">Core Marketing</h3>
+                        <h3 class="text-xl font-semibold accent-purple-text mb-3">Core Marketing</h3>
                         <ul class="space-y-2 text-white" data-stagger-group="skills-core">
                             <li class="skill-item" data-skill-id="business-development-manager">
                                 Business Development Manager
@@ -378,7 +347,7 @@
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold cosmic-blue-text mb-3">Technical & Other</h3>
+                        <h3 class="text-xl font-semibold accent-purple-text mb-3">Technical & Other</h3>
                         <ul class="space-y-2 text-white" data-stagger-group="skills-tech">
                             <li class="skill-item" data-skill-id="data-analytics">
                                 Data Analytics
@@ -402,7 +371,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <h3 class="text-xl font-semibold cosmic-blue-text mt-4 mb-3">Languages</h3>
+                        <h3 class="text-xl font-semibold accent-purple-text mt-4 mb-3">Languages</h3>
                         <ul class="space-y-2 text-white" data-stagger-group="skills-lang">
                             <li class="skill-item">English (Advanced)</li>
                             <li class="skill-item">Urdu (Advanced)</li>
@@ -415,10 +384,10 @@
         </section>
 
         <section id="experience" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold cosmic-blue-text mb-8 text-center">Experience</h2>
+            <h2 class="text-3xl font-bold accent-purple-text mb-8 text-center">Experience</h2>
             <div class="space-y-8" data-stagger-group="experience">
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint experience-item">
-                    <h3 class="text-2xl font-semibold cosmic-blue-text">Business Development Internship</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold accent-purple-text">Business Development Internship</h3>
                     <p class="text-white font-medium">MEXC (Internship)</p>
                     <p class="text-sm text-gray-400 mb-2">January 2025 - March 2025</p>
                     <ul class="list-disc list-inside space-y-1 text-white">
@@ -427,8 +396,8 @@
                         <li>Developed a 300+ Influencer Network.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint experience-item">
-                    <h3 class="text-2xl font-semibold cosmic-blue-text">Marketing Head</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold accent-purple-text">Marketing Head</h3>
                     <p class="text-white font-medium">Socrates Global</p>
                     <p class="text-sm text-gray-400 mb-2">Oct 2024 - Dec 2024</p>
                     <ul class="list-disc list-inside space-y-1 text-white">
@@ -436,8 +405,8 @@
                         <li>Optimized campaign performance through data-driven approaches, resulting in measurable ROI.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint experience-item">
-                    <h3 class="text-2xl font-semibold cosmic-blue-text">Social Media Marketing Specialist</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold accent-purple-text">Social Media Marketing Specialist</h3>
                     <p class="text-white font-medium">Pearl Residencia</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2024-Dec 2024</p>
                     <ul class="list-disc list-inside space-y-1 text-white">
@@ -445,8 +414,8 @@
                         <li>Strengthened online presence, achieving significant growth in follower base.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint experience-item">
-                    <h3 class="text-2xl font-semibold cosmic-blue-text">Digital Marketing Intern</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold accent-purple-text">Digital Marketing Intern</h3>
                     <p class="text-white font-medium">SynthX</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2023 - Dec 2023</p>
                     <ul class="list-disc list-inside space-y-1 text-white">
@@ -454,8 +423,8 @@
                         <li>Designed and published engaging content to boost customer retention and lead generation.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint experience-item">
-                    <h3 class="text-2xl font-semibold cosmic-blue-text">Digital Marketing Manager</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold accent-purple-text">Digital Marketing Manager</h3>
                     <p class="text-white font-medium">Al Sakeena Collection</p>
                     <p class="text-sm text-gray-400 mb-2">January 2022 - July 2023</p>
                     <ul class="list-disc list-inside space-y-1 text-white">
@@ -463,8 +432,8 @@
                         <li>Implemented cost-effective advertising strategies to maximize outreach and revenue.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint experience-item">
-                    <h3 class="text-2xl font-semibold cosmic-blue-text">Community Specialist</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold accent-purple-text">Community Specialist</h3>
                     <p class="text-white font-medium">Glip.gg</p>
                     <p class="text-sm text-gray-400 mb-2">Aug 2021 - January 2022</p>
                     <ul class="list-disc list-inside space-y-1 text-white">
@@ -472,8 +441,8 @@
                         <li>Executed innovative marketing campaigns tailored for the competitive gaming sector.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint experience-item">
-                    <h3 class="text-2xl font-semibold cosmic-blue-text">Digital Marketing Manager</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold accent-purple-text">Digital Marketing Manager</h3>
                     <p class="text-white font-medium">Tastebuds</p>
                     <p class="text-sm text-gray-400 mb-2">Feb 2021 - July 2021</p>
                     <ul class="list-disc list-inside space-y-1 text-white">
@@ -481,8 +450,8 @@
                         <li>Achieved significant growth in online traffic and client acquisition.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint experience-item">
-                    <h3 class="text-2xl font-semibold cosmic-blue-text">Community Specialist</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold accent-purple-text">Community Specialist</h3>
                     <p class="text-white font-medium">HFC Pak</p>
                     <p class="text-sm text-gray-400 mb-2">Nov 2020 - Feb 2021</p>
                     <ul class="list-disc list-inside space-y-1 text-white">
@@ -490,8 +459,8 @@
                         <li>Enhanced user interaction through content creation and personalized marketing.</li>
                     </ul>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint experience-item">
-                    <h3 class="text-2xl font-semibold cosmic-blue-text">Digital Marketing Manager</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-2xl font-semibold accent-purple-text">Digital Marketing Manager</h3>
                     <p class="text-white font-medium">Royal Incorporation</p>
                     <p class="text-sm text-gray-400 mb-2">March 2019 - Oct 2020</p>
                     <ul class="list-disc list-inside space-y-1 text-white">
@@ -503,66 +472,66 @@
         </section>
 
         <section id="projects" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold cosmic-blue-text mb-8 text-center">Projects</h2>
+            <h2 class="text-3xl font-bold accent-purple-text mb-8 text-center">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-stagger-group="projects">
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint project-item">
-                    <h3 class="text-xl font-semibold cosmic-blue-text mb-2">Socrates</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold accent-purple-text mb-2">Socrates</h3>
                     <p class="text-white">Web3 knowledge protocol</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint project-item">
-                    <h3 class="text-xl font-semibold cosmic-blue-text mb-2">Glip.gg</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold accent-purple-text mb-2">Glip.gg</h3>
                     <p class="text-white">Gaming & Web3 rewards</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint project-item">
-                    <h3 class="text-xl font-semibold cosmic-blue-text mb-2">BTX Battle Extreme</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold accent-purple-text mb-2">BTX Battle Extreme</h3>
                     <p class="text-white">GameFi campaign</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint project-item">
-                    <h3 class="text-xl font-semibold cosmic-blue-text mb-2">MEXC</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold accent-purple-text mb-2">MEXC</h3>
                     <p class="text-white">CEX collaboration & marketing</p>
                 </div>
             </div>
         </section>
 
         <section id="achievements" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold cosmic-blue-text mb-8 text-center">Key Achievements</h2>
-            <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint">
+            <h2 class="text-3xl font-bold accent-purple-text mb-8 text-center">Key Achievements</h2>
+            <div class="bg-dark-card p-6 rounded-lg">
                 <ul class="list-disc list-inside space-y-2 text-white text-lg" data-stagger-group="achievements">
-                    <li class="achievement-item">HFC Pak: Grew the app user base to 500,000+ in 4 months.</li>
-                    <li class="achievement-item">Glip & BTX Battle Extreme: Achieved 200,000+ app usages in 2 months.</li>
-                    <li class="achievement-item">Al Sakeena Collection: Transformed the e-commerce store into a renowned brand.</li>
-                    <li class="achievement-item">Tastebuds: Elevated the restaurant to a top 10 ranking in Faisalabad.</li>
-                    <li class="achievement-item">Dynamic Capital Estate: Boosted company growth through innovative marketing.</li>
-                    <li class="achievement-item">MHT Textiles: Expanded international reach for CNC Wood Router machines.</li>
+                    <li>HFC Pak: Grew the app user base to 500,000+ in 4 months.</li>
+                    <li>Glip & BTX Battle Extreme: Achieved 200,000+ app usages in 2 months.</li>
+                    <li>Al Sakeena Collection: Transformed the e-commerce store into a renowned brand.</li>
+                    <li>Tastebuds: Elevated the restaurant to a top 10 ranking in Faisalabad.</li>
+                    <li>Dynamic Capital Estate: Boosted company growth through innovative marketing.</li>
+                    <li>MHT Textiles: Expanded international reach for CNC Wood Router machines.</li>
                 </ul>
             </div>
         </section>
 
         <section id="additional-projects" class="portfolio-section mb-16">
-            <h2 class="text-3xl font-bold cosmic-blue-text mb-8 text-center">Additional Projects</h2>
+            <h2 class="text-3xl font-bold accent-purple-text mb-8 text-center">Additional Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-stagger-group="additional-projects">
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint project-item">
-                    <h3 class="text-xl font-semibold cosmic-blue-text mb-2">Local Business Growth</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold accent-purple-text mb-2">Local Business Growth</h3>
                     <p class="text-white">Successfully led marketing campaigns for restaurants, including Hungers Doner, enhancing local visibility and revenue.</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg shadow-lg border border-cosmic-blue-faint project-item">
-                    <h3 class="text-xl font-semibold cosmic-blue-text mb-2">Teaching</h3>
+                <div class="bg-dark-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold accent-purple-text mb-2">Teaching</h3>
                     <p class="text-white">Conducted training sessions on digital marketing strategies for aspiring professionals.</p>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="portfolio-section mb-16 text-center">
-            <h2 class="text-3xl font-bold cosmic-blue-text mb-8">Connect With Me</h2>
+            <h2 class="text-3xl font-bold accent-purple-text mb-8">Connect With Me</h2>
             <div class="space-y-4 flex flex-wrap justify-center items-center">
-                <a href="https://www.linkedin.com/in/shayan-irfan-79530b322" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-cosmic-blue-faint hover:border-purple-300 transition-colors duration-300 mx-2 my-2">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 cosmic-blue-text">
+                <a href="https://www.linkedin.com/in/shayan-irfan-79530b322" target="_blank" class="inline-block bg-dark-card p-4 rounded-md hover:border-gray-300 transition-colors duration-300 mx-2 my-2">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-white">
                         <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19.48h-3.04v-11.02h3.04v11.02zm-1.52-12.28c-.99 0-1.63-.66-1.63-1.48 0-.83.64-1.48 1.63-1.48 1 0 1.63.65 1.63 1.48 0 .82-.63 1.48-1.63 1.48zm12.28 12.28h-3.04v-5.9c0-1.56-.58-2.62-2.04-2.62-1.12 0-1.74.83-2.02 1.64 0 .14 0 .3-.02.44v6.44h-3.04s.04-10.84 0-11.02h3.04v1.56c.4-.6 1.12-1.47 2.6-1.47 1.92 0 3.38 1.26 3.38 3.9v5.02z"/>
                     </svg>
                     <span class="block text-sm mt-1">LinkedIn</span>
                 </a>
-                <a href="https://x.com/shayan_malik_" target="_blank" class="inline-block bg-dark-card p-4 rounded-md shadow-md border border-cosmic-blue-faint hover:border-purple-300 transition-colors duration-300 mx-2 my-2">
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 cosmic-blue-text">
+                <a href="https://x.com/shayan_malik_" target="_blank" class="inline-block bg-dark-card p-4 rounded-md hover:border-gray-300 transition-colors duration-300 mx-2 my-2">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-white">
                         <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.89-2.37-.83.5-1.75.85-2.72 1.05C18.07 4.42 16.9 4 15.68 4c-2.76 0-5 2.24-5 5 0 .4.05.8.1.96C8.07 8.37 5.33 7 3.05 4.76c-.4.69-.63 1.49-.63 2.34 0 1.74.89 3.27 2.22 4.17C5.67 11.8 4.8 12.1 3.78 12.1c-.39 0-.79-.04-1.17-.12 0 1.79 1.26 3.28 2.96 3.63-.3.08-.6.13-.9.13-.22 0-.43-.02-.64-.06.44 1.46 1.72 2.53 3.24 2.53-1.24.98-2.8 1.57-4.52 1.57-.28 0-.55-.02-.83-.05 1.56.99 3.44 1.57 5.42 1.57 6.5 0 10.07-5.38 10.07-10.07 0-.15 0-.3-.02-.46.69-.49 1.29-1.1 1.76-1.83z"/>
                     </svg>
                     <span class="block text-sm mt-1">X (Twitter)</span>
@@ -572,10 +541,10 @@
                 Based in Faisalabad, Punjab.
             </p>
             <p class="text-gray-200">
-                Email: <a href="mailto:shayanindustry007@gamil.com" class="cosmic-blue-text hover:underline">shayanindustry007@gamil.com</a>
+                Email: <a href="mailto:shayanindustry007@gamil.com" class="accent-purple-text hover:underline">shayanindustry007@gamil.com</a>
             </p>
             <p class="text-gray-200">
-                WhatsApp: <a href="https://wa.me/923267788999" target="_blank" class="cosmic-blue-text hover:underline">+92 326 7788999</a>
+                WhatsApp: <a href="https://wa.me/923267788999" target="_blank" class="accent-purple-text hover:underline">+92 326 7788999</a>
             </p>
         </section>
 
@@ -640,7 +609,7 @@
                                 setTimeout(() => {
                                     animatableItem.classList.add('stagger-visible');
                                 }, delay);
-                                delay += 90; // Stagger delay in milliseconds (slightly slower)
+                                delay += 70; // Stagger delay in milliseconds
                             }
                         });
                     });
@@ -657,160 +626,16 @@
         window.onscroll = function() {
             if (window.pageYOffset > 50) {
                 navbar.classList.add('bg-opacity-100', 'shadow-xl');
-                navbar.classList.remove('bg-opacity-90');
+                navbar.classList.remove('bg-opacity-70');
             } else {
                 navbar.classList.remove('bg-opacity-100', 'shadow-xl');
-                navbar.classList.add('bg-opacity-90');
+                navbar.classList.add('bg-opacity-70');
             }
-        };
-
-        // Plotly 3D Background Animation (Cosmic Convergence Style)
-        const plotlyDiv = document.getElementById('plotly-background');
-        let animationFrameId;
-        let plotInitialized = false;
-
-        // Declare global variables for Plotly data
-        let xParticles = []; // X coordinates for particles
-        let yParticles = []; // Y coordinates for particles
-        let zParticles = []; // Z coordinates for particles
-        let particleColors = []; // Colors for particles
-        let particleSizes = []; // Sizes for particles
-
-        function create3DPlot() {
-            const numParticles = 1000; // Increased number of particles for denser cosmic dust
-            const particleSpread = 3.0; // How spread out the particles are
-
-            // Generate random particle positions, sizes, and colors
-            for (let i = 0; i < numParticles; i++) {
-                xParticles.push((Math.random() * 2 - 1) * particleSpread);
-                yParticles.push((Math.random() * 2 - 1) * particleSpread);
-                zParticles.push((Math.random() * 2 - 1) * particleSpread);
-                particleSizes.push(Math.random() * 4 + 1); // Sizes from 1 to 5
-                particleColors.push(Math.random() > 0.5 ? 'rgba(106, 90, 205, 0.8)' : 'rgba(218, 112, 214, 0.7)'); // Cosmic Blue or Nebula Pink
-            }
-
-            const data = [
-                {
-                    x: xParticles,
-                    y: yParticles,
-                    z: zParticles,
-                    mode: 'markers',
-                    type: 'scatter3d',
-                    name: 'Cosmic Dust',
-                    marker: {
-                        size: particleSizes, // Dynamic sizes
-                        color: particleColors, // Dynamic colors
-                        opacity: 0.9,
-                        symbol: 'circle'
-                    },
-                    hoverinfo: 'none' // No hover info for background elements
-                }
-            ];
-
-            const layout = {
-                autosize: true,
-                height: window.innerHeight,
-                width: window.innerWidth,
-                margin: { l: 0, r: 0, b: 0, t: 0 },
-                scene: {
-                    xaxis: { visible: false },
-                    yaxis: { visible: false },
-                    zaxis: { visible: false },
-                    camera: {
-                        eye: { x: 1.8, y: 1.8, z: 1.8 }, // Initial camera position
-                        center: { x: 0, y: 0, z: 0 }, // Center of the cosmic field
-                        up: { x: 0, y: 0, z: 1 }
-                    },
-                    aspectmode: 'cube' // Maintain aspect ratio
-                },
-                paper_bgcolor: 'rgba(0,0,0,0)', /* Transparent background */
-                plot_bgcolor: 'rgba(0,0,0,0)',
-                showlegend: false,
-                hovermode: false,
-                uirevision: 'true' // Prevents camera reset on update
-            };
-
-            Plotly.newPlot(plotlyDiv, data, layout, { displayModeBar: false, staticPlot: false }).then(() => {
-                plotInitialized = true;
-            });
-        }
-
-        let frame = 0;
-        function animatePlot() {
-            if (!plotInitialized) {
-                animationFrameId = requestAnimationFrame(animatePlot);
-                return;
-            }
-
-            const camera = plotlyDiv._fullLayout.scene.camera;
-            const orbitRadius = 2.5; // Radius of camera orbit
-            const orbitSpeed = 0.0002; // Even slower orbit speed for smoother, ethereal feel
-
-            const newEyeX = orbitRadius * Math.cos(frame * orbitSpeed);
-            const newEyeY = orbitRadius * Math.sin(frame * orbitSpeed);
-            const newEyeZ = 1.2 + 0.8 * Math.sin(frame * 0.0005); // Subtle vertical bob
-
-            Plotly.relayout(plotlyDiv, 'scene.camera.eye', { x: newEyeX, y: newEyeY, z: newEyeZ });
-
-            // Animate particle positions for a flowing effect
-            const particleFlowSpeed = 0.005;
-            for (let i = 0; i < xParticles.length; i++) {
-                xParticles[i] += (Math.random() - 0.5) * particleFlowSpeed;
-                yParticles[i] += (Math.random() - 0.5) * particleFlowSpeed;
-                zParticles[i] += (Math.random() - 0.5) * particleFlowSpeed;
-
-                // Wrap particles around to create continuous flow
-                const wrapLimit = 3.0; // Same as particleSpread
-                if (xParticles[i] > wrapLimit) xParticles[i] = -wrapLimit;
-                if (xParticles[i] < -wrapLimit) xParticles[i] = wrapLimit;
-                if (yParticles[i] > wrapLimit) yParticles[i] = -wrapLimit;
-                if (yParticles[i] < -wrapLimit) yParticles[i] = wrapLimit;
-                if (zParticles[i] > wrapLimit) zParticles[i] = -wrapLimit;
-                if (zParticles[i] < -wrapLimit) zParticles[i] = wrapLimit;
-            }
-            Plotly.restyle(plotlyDiv, { x: [xParticles], y: [yParticles], z: [zParticles] }, [0]);
-
-            frame++;
-            animationFrameId = requestAnimationFrame(animatePlot);
-        }
-
-        // Cosmic Pulse effect overlay
-        const cosmicPulseOverlay = document.getElementById('cosmic-pulse-overlay');
-        function triggerCosmicPulseFlash() {
-            cosmicPulseOverlay.classList.add('flash');
-            setTimeout(() => {
-                cosmicPulseOverlay.classList.remove('flash');
-            }, 100); // Slightly longer pulse duration for a softer feel
-        }
-
-        // Trigger cosmic pulse randomly (e.g., every 4-18 seconds)
-        setInterval(() => {
-            const randomDelay = Math.random() * 14000 + 4000; // 4 to 18 seconds
-            setTimeout(triggerCosmicPulseFlash, randomDelay);
-        }, 18000); // Check every 18 seconds to potentially trigger a pulse
-
-        // Initialize and animate Plotly on window load
-        window.onload = function() {
-            create3DPlot();
-            animatePlot();
-
-            // Handle resize
-            window.addEventListener('resize', () => {
-                Plotly.relayout(plotlyDiv, {
-                    width: window.innerWidth,
-                    height: window.innerHeight
-                });
-            });
-        };
-
-        // Stop animation when leaving the page (optional cleanup)
-        window.onbeforeunload = function() {
-            cancelAnimationFrame(animationFrameId);
         };
 
         // Skill Description Toggle Logic
         document.addEventListener('DOMContentLoaded', () => {
-            const skillItems = document.querySelectorAll('#skills ul[data-stagger-group="skills-core"] .skill-item, #skills ul[data-stagger-group="skills-tech"] .skill-item, #skills ul[data-stagger-group="skills-lang"] .skill-item');
+            const skillItems = document.querySelectorAll('.skill-item');
 
             skillItems.forEach(item => {
                 item.addEventListener('click', (event) => {
@@ -821,15 +646,12 @@
 
                     const descriptionContainer = item.querySelector('.skill-description-container');
                     if (descriptionContainer) {
-                        // Close all other open descriptions in the same group
-                        const parentUl = item.closest('ul');
-                        if (parentUl) {
-                            parentUl.querySelectorAll('.skill-description-container.open').forEach(openDesc => {
-                                if (openDesc !== descriptionContainer) {
-                                    openDesc.classList.remove('open');
-                                }
-                            });
-                        }
+                        // Close all other open descriptions
+                        document.querySelectorAll('.skill-description-container.open').forEach(openDesc => {
+                            if (openDesc !== descriptionContainer) {
+                                openDesc.classList.remove('open');
+                            }
+                        });
 
                         // Toggle the clicked description
                         descriptionContainer.classList.toggle('open');
